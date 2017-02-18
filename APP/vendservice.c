@@ -46,6 +46,7 @@ uint32_t 	vmcPrice  = 0;							//当前购买的商品单价
 
 static void VendingService(void);
 static void VendingIdle(void);
+void Vend_DispSalePage(void);
 //static void SetupLogicChannel(void);				//重映射货道,即交易时送出逻辑货道并映射到物理货道
 
 /***************************************************************************************************************************************
@@ -202,6 +203,17 @@ void Vend_CLrBusinessText(void)
 	vTaskDelay(2);	
 }
 /***************************************************************************************************************************************
+** @APP Function name:   Vend_CLrBusinessText
+** @APP Descriptions:	 清空闲状态时显示的时间屏幕信息
+** @APP Input para:      None
+** @APP retrun para:     None
+***************************************************************************************************************************************/
+void Vend_CLrFreeText(void)
+{	
+	API_LCM_ClearArea(0,0,239,11);
+	vTaskDelay(2);	
+}
+/***************************************************************************************************************************************
 ** @APP Function name:   Vend_DispFreePage
 ** @Descriptions Func:	 空闲页面,vmcEorr代表进入故障页面显示,vmcChangeLow代表进入缺币页面显示
 ** @APP Input para:      None
@@ -314,22 +326,14 @@ void Vend_DispChaxunPage(uint8_t *keyValue)
 			pstr = PrintfMoney(vmcPrice);
 			strcpy(strMoney, pstr);
 			Vend_CLrBusinessText();
+			API_LCM_DrawLine(0,12);
 			API_LCM_Printf(7,13,0,0,UIMenu.price[VMCParam.Language],ChannelNum,strMoney);
-			if(Vend_GetAmountMoney() >= vmcPrice)
-			{
-				#ifdef DEBUG_VENDSERVICE
-				Trace("\r\n%S,%d:Go to vending",__FILE__,__LINE__);
-				#endif
-				vmcStatus = VMC_CHUHUO;
-			}
-			else
-			{
-				#ifdef DEBUG_VENDSERVICE
-				Trace("\r\n%S,%d:User need pay in more",__FILE__,__LINE__);
-				#endif				
-				vmcStatus = VMC_SALE;
-				Vend_ClearDealPar();
-			}
+			Vend_DispSalePage();
+			#ifdef DEBUG_VENDSERVICE
+			Trace("\r\n%S,%d:User need pay in more",__FILE__,__LINE__);
+			#endif				
+			API_SYSTEM_TimerChannelSet(3,30 * 100);
+			vmcStatus = VMC_SALE;
 		}
 	}	
 }
@@ -345,13 +349,11 @@ void Vend_DispSalePage(void)
 	char	strMoney[10];
 	pstr = PrintfMoney(Vend_GetAmountMoney());
 	strcpy(strMoney,pstr);
-	API_LCM_ClearScreen();
+	Vend_CLrFreeText();
 	vTaskDelay(2);
 	API_LCM_Printf(7,1,0,0,UIMenu.amount[VMCParam.Language]);
 	API_LCM_PutRMBSymbol(31,5);//24x32 bmp
-	API_LCM_Printf(71,5,1,0,"%S",strMoney);//dot 32x16
-	API_LCM_DrawLine(0,12);
-	API_LCM_Printf(7,13,0,0,UIMenu.column[VMCParam.Language],"");
+	API_LCM_Printf(71,5,1,0,"%S",strMoney);//dot 32x16	
 }
 /***************************************************************************************************************************************
 ** @APP Function name:   Vend_DispChuhuoPage
@@ -810,22 +812,17 @@ static void VendingService(void)
 					Trace("\r\n%S,%d:App User Pay in,amount = %ld",__FILE__,__LINE__,Vend_GetAmountMoney());
 					#endif					
 				}
-				//2.轮询按键
-				keyValue = API_KEY_ReadKey();
-				if(keyValue)
-				{
-					//确定
-					if((keyValue >= 'A') && (keyValue <= 'F'))
+				//.未投币时超时退出查询页面
+				if(Vend_GetAmountMoney()==0)
+				{					
+					if(API_SYSTEM_TimerReadChannelValue(3) == 0)
 					{
-						#ifdef DEBUG_VENDSERVICE
-						Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);
-						#endif
-						API_SYSTEM_TimerChannelSet(3,5 * 100);
-						vmcStatus = VMC_CHAXUN;	
-						Vend_CLrBusinessText();
-						break;
+						Vend_ClearDealPar();
+						API_LCM_ClearScreen();
+						API_SYSTEM_TimerChannelSet(1,1 * 100);
+						vmcStatus = VMC_FREE;
 					}
-				}	
+				}
 				//3.有按下退币按键
 				if(Vend_IsTuibiAPI())
 				{
