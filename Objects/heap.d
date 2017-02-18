@@ -1,0 +1,16 @@
+.\objects\heap.o: FreeRTOS\portable\heap.c
+.\objects\heap.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\heap.o: FreeRTOS\portable\..\FreeRTOS.h
+.\objects\heap.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\heap.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\heap.o: FreeRTOS\portable\..\FreeRTOSConfig.h
+.\objects\heap.o: FreeRTOS\portable\..\..\CMISI\LPC17xx.h
+.\objects\heap.o: FreeRTOS\portable\..\..\CMISI\core_cm3.h
+.\objects\heap.o: FreeRTOS\portable\..\..\CMISI\system_LPC17xx.h
+.\objects\heap.o: FreeRTOS\portable\..\.\include\projdefs.h
+.\objects\heap.o: FreeRTOS\portable\..\.\include\portable.h
+.\objects\heap.o: FreeRTOS\portable\..\.\include\deprecated_definitions.h
+.\objects\heap.o: FreeRTOS\portable\..\.\include\../portable/portmacro.h
+.\objects\heap.o: FreeRTOS\portable\..\.\include\mpu_wrappers.h
+.\objects\heap.o: FreeRTOS\portable\..\include\task.h
+.\objects\heap.o: FreeRTOS\portable\..\include\list.h

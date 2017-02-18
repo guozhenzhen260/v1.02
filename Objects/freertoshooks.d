@@ -1,0 +1,17 @@
+.\objects\freertoshooks.o: FreeRTOS\portable\FreeRTOSHooks.c
+.\objects\freertoshooks.o: FreeRTOS\portable\..\FreeRTOS.h
+.\objects\freertoshooks.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\freertoshooks.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\FreeRTOSConfig.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\..\CMISI\LPC17xx.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\..\CMISI\core_cm3.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\..\CMISI\system_LPC17xx.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\.\include\projdefs.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\.\include\portable.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\.\include\deprecated_definitions.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\.\include\../portable/portmacro.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\.\include\mpu_wrappers.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\include\task.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\include\list.h
+.\objects\freertoshooks.o: FreeRTOS\portable\..\..\DRIVERS\UART0.H
+.\objects\freertoshooks.o: FreeRTOS\portable\FreeRTOSHooks.h
