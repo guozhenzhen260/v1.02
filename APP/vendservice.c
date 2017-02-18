@@ -199,6 +199,17 @@ void Vend_ClearDealPar(void)
 ***************************************************************************************************************************************/
 void Vend_CLrBusinessText(void)
 {	
+	API_LCM_ClearArea(0,13,239,15);
+	vTaskDelay(2);	
+}
+/***************************************************************************************************************************************
+** @APP Function name:   Vend_CLrBusinessText
+** @APP Descriptions:	 清交易时提示语言以及横线
+** @APP Input para:      None
+** @APP retrun para:     None
+***************************************************************************************************************************************/
+void Vend_CLrBusinessAndLineText(void)
+{	
 	API_LCM_ClearArea(0,12,239,15);
 	vTaskDelay(2);	
 }
@@ -259,7 +270,7 @@ void Vend_DispChaxunPage(uint8_t *keyValue)
 	if(*keyValue == '>')
 	{
 		Vend_ClearDealPar();
-		Vend_CLrBusinessText();
+		Vend_CLrBusinessAndLineText();
 		vmcStatus = VMC_FREE;
 		LayerOk = 0x00;
 		channelInput = 0x00;
@@ -305,7 +316,7 @@ void Vend_DispChaxunPage(uint8_t *keyValue)
 		if((VMCParam.GoodsChannelArray[vmcColumn] == 0) || (TradeParam.GoodsPrice[vmcColumn] == 0))	//货道未开启 或 货道单价为0
 		{
 			Vend_ClearDealPar();
-			Vend_CLrBusinessText();
+			Vend_CLrBusinessAndLineText();
 			vmcStatus = VMC_FREE;
 			#ifdef DEBUG_VENDSERVICE
 			Trace("\r\n%S,%d:Channel is disable or Price = 0",__FILE__,__LINE__);
@@ -314,7 +325,7 @@ void Vend_DispChaxunPage(uint8_t *keyValue)
 		else if(TradeParam.RemainGoods[vmcColumn] == 0)	//货道当前存货数量
 		{
 			Vend_ClearDealPar();
-			Vend_CLrBusinessText();
+			Vend_CLrBusinessAndLineText();
 			vmcStatus = VMC_FREE;
 			#ifdef DEBUG_VENDSERVICE
 			Trace("\r\n%S,%d:Goods is sold out",__FILE__,__LINE__);
@@ -326,7 +337,6 @@ void Vend_DispChaxunPage(uint8_t *keyValue)
 			pstr = PrintfMoney(vmcPrice);
 			strcpy(strMoney, pstr);
 			Vend_CLrBusinessText();
-			API_LCM_DrawLine(0,12);
 			API_LCM_Printf(7,13,0,0,UIMenu.price[VMCParam.Language],ChannelNum,strMoney);
 			Vend_DispSalePage();
 			#ifdef DEBUG_VENDSERVICE
@@ -812,9 +822,10 @@ static void VendingService(void)
 					Trace("\r\n%S,%d:App User Pay in,amount = %ld",__FILE__,__LINE__,Vend_GetAmountMoney());
 					#endif					
 				}
-				//.未投币时超时退出查询页面
+				//.未投币时
 				if(Vend_GetAmountMoney()==0)
-				{					
+				{			
+					//超时退出查询页面
 					if(API_SYSTEM_TimerReadChannelValue(3) == 0)
 					{
 						Vend_ClearDealPar();
@@ -822,15 +833,27 @@ static void VendingService(void)
 						API_SYSTEM_TimerChannelSet(1,1 * 100);
 						vmcStatus = VMC_FREE;
 					}
+					//按下取消按键或退币按键退出查询页面
+					keyValue = API_KEY_ReadKey();
+					if((keyValue == '>')||(Vend_IsTuibiAPI()))
+					{
+						Vend_ClearDealPar();
+						API_LCM_ClearScreen();
+						API_SYSTEM_TimerChannelSet(1,1 * 100);
+						vmcStatus = VMC_FREE;
+					}
 				}
-				//3.有按下退币按键
-				if(Vend_IsTuibiAPI())
+				else
 				{
-					#ifdef DEBUG_VENDSERVICE
-					Trace("\r\n%S,%d:App User Press Escrow button",__FILE__,__LINE__);
-					#endif
-					Vend_BillCoinCtr(2,2,0);
-					vmcStatus = VMC_PAYOUT;
+					//3.有按下退币按键
+					if(Vend_IsTuibiAPI())
+					{
+						#ifdef DEBUG_VENDSERVICE
+						Trace("\r\n%S,%d:App User Press Escrow button",__FILE__,__LINE__);
+						#endif
+						Vend_BillCoinCtr(2,2,0);
+						vmcStatus = VMC_PAYOUT;
+					}
 				}
 				break;
 			case VMC_CHUHUO:
