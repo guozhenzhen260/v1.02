@@ -1,0 +1,5 @@
+---- App User Press key Æ¥Åä (4 in 1 ÎÄ¼þ) ----
+Vendservice.c (app):						Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);
+Vendservice.c (app):						Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);
+Vendservice.c (app):					Trace("\r\n%S,%d:App User press key",__FILE__,__LINE__);
+Vendservice.c (app):						Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);

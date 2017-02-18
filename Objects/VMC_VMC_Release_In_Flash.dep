@@ -67,7 +67,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\setjmp.h)(0x55AEF5F2)
 I (C:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x55AEF5F2)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x55AEF5F2)
 I (APP\Android.h)(0x5847B2B1)
-F (.\APP\vendservice.c)(0x58509D44)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I Device\Include-D__UVISION_VERSION="516"-o .\objects\vendservice.o --omf_browse .\objects\vendservice.crf --depend .\objects\vendservice.d)
+F (.\APP\vendservice.c)(0x58A850B8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I Device\Include-D__UVISION_VERSION="516"-o .\objects\vendservice.o --omf_browse .\objects\vendservice.crf --depend .\objects\vendservice.d)
 I (APP\..\API\API.H)(0x584FAE25)
 I (APP\..\API\OS.H)(0x58303F23)
 I (APP\..\API\..\FreeRTOS\FreeRTOS.h)(0x577CD6EE)

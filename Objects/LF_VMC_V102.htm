@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LF_VMC_V102.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LF_VMC_V102.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sat Feb 18 14:17:09 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sat Feb 18 21:48:43 2017
 <BR><P>
 <H3>Maximum Stack Usage =        600 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1203,6 +1203,7 @@ Global Symbols
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterMaintenance
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_DispSalePage
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[c0]"></a>API_LCM_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, display.o(i.API_LCM_Init))
@@ -2277,7 +2278,7 @@ Global Symbols
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[13a]"></a>Vend_DispChaxunPage</STRONG> (Thumb, 676 bytes, Stack size 48 bytes, vendservice.o(i.Vend_DispChaxunPage))
+<P><STRONG><a name="[13a]"></a>Vend_DispChaxunPage</STRONG> (Thumb, 586 bytes, Stack size 48 bytes, vendservice.o(i.Vend_DispChaxunPage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
 <LI>Call Chain = Vend_DispChaxunPage &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2856,7 +2857,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendService
 </UL>
 
-<P><STRONG><a name="[134]"></a>VendingService</STRONG> (Thumb, 1706 bytes, Stack size 40 bytes, vendservice.o(i.VendingService))
+<P><STRONG><a name="[134]"></a>VendingService</STRONG> (Thumb, 1656 bytes, Stack size 40 bytes, vendservice.o(i.VendingService))
 <BR><BR>[Stack]<UL><LI>Max Depth = 536 + Unknown Stack Size
 <LI>Call Chain = VendingService &rArr; LoadNewTradeParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2873,6 +2874,7 @@ Local Symbols
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_SYSTEM_TimerReadChannelValue
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_SYSTEM_TimerChannelSet
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_DrawLine
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_ClearScreen
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_ReadKey
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_KeyboardCtrl
