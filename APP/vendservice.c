@@ -820,7 +820,16 @@ static void VendingService(void)
 					Vend_DispSalePage();
 					#ifdef DEBUG_VENDSERVICE
 					Trace("\r\n%S,%d:App User Pay in,amount = %ld",__FILE__,__LINE__,Vend_GetAmountMoney());
-					#endif					
+					#endif	
+					//如果金额足够，转入出货流程
+			            if(Vend_GetAmountMoney() >= vmcPrice)
+			            {
+			                #ifdef DEBUG_VENDSERVICE
+			                Trace("\r\n%S,%d:Go to vending",__FILE__,__LINE__);
+			                #endif
+			                vmcStatus = VMC_CHUHUO;
+			            }
+
 				}
 				//.未投币时
 				if(Vend_GetAmountMoney()==0)
@@ -862,6 +871,7 @@ static void VendingService(void)
 				Vend_DispChuhuoPage();
 				API_KEY_KeyboardCtrl(0x00);			
 				ChuhuoRst = API_VENDING_Vend(ChannelNum[0],ChannelNum[1]);
+				//ChuhuoRst=1;
 				API_KEY_KeyboardCtrl(0x01);				
 				if(ChuhuoRst==1)
 				{	
@@ -892,12 +902,11 @@ static void VendingService(void)
 				vmcPrice = 0;
 				vmcColumn= 0;
 				Vend_ClearDealPar();
+				//用户有余额，转到退币流程
 				if(Vend_GetAmountMoney())
-				{
-					//用户有余额，开启现金设备并继续售卖
-					Vend_BillCoinCtr(1,1,0);	
+				{					
 					Vend_DispSalePage();
-					vmcStatus = VMC_SALE;
+					vmcStatus = VMC_PAYOUT;
 				}
 				else
 				{

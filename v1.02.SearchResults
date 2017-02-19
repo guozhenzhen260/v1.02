@@ -1,5 +1,6 @@
----- App User Press key 匹配 (4 in 1 文件) ----
-Vendservice.c (app):						Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);
-Vendservice.c (app):						Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);
-Vendservice.c (app):					Trace("\r\n%S,%d:App User press key",__FILE__,__LINE__);
-Vendservice.c (app):						Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);
+---- vmcPrice 匹配 (5 in 1 文件) ----
+Vendservice.c (app):uint32_t 	vmcPrice  = 0;							//当前购买的商品单价
+Vendservice.c (app):			vmcPrice=(uint32_t)TradeParam.GoodsPrice[vmcColumn]*10;//以分为单位处理
+Vendservice.c (app):			pstr = PrintfMoney(vmcPrice);
+Vendservice.c (app):					Vend_SaleCostMoney(vmcPrice);//扣款				
+Vendservice.c (app):				vmcPrice = 0;
