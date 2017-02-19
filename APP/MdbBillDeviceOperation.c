@@ -366,7 +366,7 @@ uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char
 				*billOptBack = 1;	
 			break;	
 		case MBOX_BILLRETURN:
-			//Trace("\r\nescrow bill");
+			//Trace("\r\nreturn bill");
 			if(API_MDB_Escrow_BillDevice(0))
 				*billOptBack = 4;	
 			else

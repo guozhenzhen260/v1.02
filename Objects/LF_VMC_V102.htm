@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LF_VMC_V102.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LF_VMC_V102.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sun Feb 19 09:46:42 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sun Feb 19 12:27:19 2017
 <BR><P>
 <H3>Maximum Stack Usage =        600 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1272,7 +1272,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinTypeEanbleOrDisable
 </UL>
 
-<P><STRONG><a name="[cb]"></a>API_MDB_Escrow_BillDevice</STRONG> (Thumb, 160 bytes, Stack size 64 bytes, billvalidatorrecycler.o(i.API_MDB_Escrow_BillDevice))
+<P><STRONG><a name="[cb]"></a>API_MDB_Escrow_BillDevice</STRONG> (Thumb, 170 bytes, Stack size 64 bytes, billvalidatorrecycler.o(i.API_MDB_Escrow_BillDevice))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; MDBConversation &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_Stacker_BillDevice
@@ -1533,7 +1533,9 @@ Global Symbols
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_SaleCostMoney
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_GetMoney
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_ChangerMoney
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_BillCoinCtr
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
@@ -1887,7 +1889,8 @@ Global Symbols
 <P><STRONG><a name="[147]"></a>LogGetMoneyAPI</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, log.o(i.LogGetMoneyAPI))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LogGetMoneyAPI
 </UL>
-<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_GetMoney
+<BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_SaleCostMoney
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_GetMoney
 </UL>
 
 <P><STRONG><a name="[14c]"></a>LogTransactionAPI</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, log.o(i.LogTransactionAPI))
@@ -1981,7 +1984,7 @@ Global Symbols
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
 </UL>
 
 <P><STRONG><a name="[128]"></a>MdbCoinResetAndSetup</STRONG> (Thumb, 582 bytes, Stack size 56 bytes, mdbcoindeviceoperation.o(i.MdbCoinResetAndSetup))
@@ -2016,7 +2019,7 @@ Global Symbols
 
 <P><STRONG><a name="[131]"></a>MdbGetCoinValue</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, mdbcoindeviceoperation.o(i.MdbGetCoinValue))
 <BR><BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
 </UL>
 
 <P><STRONG><a name="[f0]"></a>MotorVending</STRONG> (Thumb, 724 bytes, Stack size 40 bytes, motor.o(i.MotorVending))
@@ -2141,7 +2144,8 @@ Global Symbols
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeLog
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_SaleCostMoney
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_IsErrorState
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_GetMoney
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_DispChaxunPage
@@ -2242,7 +2246,7 @@ Global Symbols
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinTypeEanbleOrDisable
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
 </UL>
-<BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
+<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
@@ -2279,13 +2283,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_DispSalePage
 </UL>
 
-<P><STRONG><a name="[139]"></a>Vend_ChangerMoney</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, vendservice.o(i.Vend_ChangerMoney))
-<BR><BR>[Stack]<UL><LI>Max Depth = 448 + Unknown Stack Size
+<P><STRONG><a name="[139]"></a>Vend_ChangerMoney</STRONG> (Thumb, 188 bytes, Stack size 32 bytes, vendservice.o(i.Vend_ChangerMoney))
+<BR><BR>[Stack]<UL><LI>Max Depth = 464 + Unknown Stack Size
 <LI>Call Chain = Vend_ChangerMoney &rArr; ChangePayoutProcessLevel3 &rArr; API_MDB_ExpanPayoutStatus_CoinDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogChangeAPI
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_GetAmountMoney
 </UL>
 <BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
@@ -2413,15 +2418,16 @@ Global Symbols
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[13a]"></a>Vend_GetAmountMoney</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, vendservice.o(i.Vend_GetAmountMoney))
-<BR><BR>[Called By]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_DispSalePage
+<P><STRONG><a name="[13a]"></a>Vend_GetAmountMoney</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, vendservice.o(i.Vend_GetAmountMoney))
+<BR><BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_GetMoney
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_DispSalePage
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_DispPayoutPage
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_ChangerMoney
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[146]"></a>Vend_GetMoney</STRONG> (Thumb, 230 bytes, Stack size 24 bytes, vendservice.o(i.Vend_GetMoney))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
+<P><STRONG><a name="[146]"></a>Vend_GetMoney</STRONG> (Thumb, 284 bytes, Stack size 32 bytes, vendservice.o(i.Vend_GetMoney))
+<BR><BR>[Stack]<UL><LI>Max Depth = 352 + Unknown Stack Size
 <LI>Call Chain = Vend_GetMoney &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
@@ -2429,6 +2435,7 @@ Global Symbols
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CoinDevProcess
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_BUZZER_Buzzer
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_GetAmountMoney
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
@@ -2443,15 +2450,22 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[14a]"></a>Vend_IsTuibiAPI</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, vendservice.o(i.Vend_IsTuibiAPI))
+<P><STRONG><a name="[14b]"></a>Vend_IsTuibiAPI</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, vendservice.o(i.Vend_IsTuibiAPI))
 <BR><BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[14b]"></a>Vend_SaleCostMoney</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, vendservice.o(i.Vend_SaleCostMoney))
-<BR><BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<P><STRONG><a name="[149]"></a>Vend_SaleCostMoney</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, vendservice.o(i.Vend_SaleCostMoney))
+<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
+<LI>Call Chain = Vend_SaleCostMoney &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogGetMoneyAPI
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
+</UL>
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[149]"></a>Vend_UpdateTubeMoney</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, vendservice.o(i.Vend_UpdateTubeMoney))
+<P><STRONG><a name="[14a]"></a>Vend_UpdateTubeMoney</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, vendservice.o(i.Vend_UpdateTubeMoney))
 <BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
 <LI>Call Chain = Vend_UpdateTubeMoney &rArr; Vend_BillCoinCtr &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2629,7 +2643,7 @@ Global Symbols
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_GetMoney
 <LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_DispSalePage
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_DispQuhuoPage
@@ -2899,9 +2913,9 @@ Local Symbols
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_ClearScreen
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_ReadKey
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_KeyboardCtrl
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_SaleCostMoney
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_IsTuibiAPI
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_SaleCostMoney
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_IsTuibiAPI
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_IsErrorState
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_GetMoney
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_GetAmountMoney

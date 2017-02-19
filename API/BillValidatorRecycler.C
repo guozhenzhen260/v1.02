@@ -169,15 +169,18 @@ extern unsigned char API_MDB_Escrow_BillDevice(unsigned char Y1)
 	cmd[1] = Y1;
 	err = MDBConversation(cmd,2,ack,&acklen);
 	#ifdef DEBUG_MDB
-	Trace("\r\nBillDrv Escrow = %d",err);
+	if(Y1==1)
+		Trace("\r\nBillDrv Escrow = %d",err);
+	else if(Y1==0)
+		Trace("\r\nBillDrv Return = %d",err);
 	#endif
 	API_SYSTEM_TimerChannelSet(0,13*100);
 	while(API_SYSTEM_TimerReadChannelValue(0))	
 	{
-		//轮询检测是否压仓成功
+		//轮询检测是否成功
 		err = API_MDB_Poll_BillDevice(ack,&acklen);
 		#ifdef DEBUG_MDB
-		Trace("\r\nBillDrv Escrowsend >> %#02x\r\n",0x33);
+		Trace("\r\nBillDrv Pollsend >> %#02x\r\n",0x33);
 		#endif
 		if(err == 1)
 		{
@@ -192,14 +195,19 @@ extern unsigned char API_MDB_Escrow_BillDevice(unsigned char Y1)
 					vTaskDelay(10);
 					API_MDB_Stacker_BillDevice(ack,&acklen);
 					return 1;	
-				}
-				//没有压抄成功，中途退出
+				}				
+				//纸币退出了
 				else if((ack[i]&0xf0)==0xa0)
 				{
 					#ifdef DEBUG_MDB
 					Trace("\r\nBillDrv escrow return");
 					#endif
-					return 0;
+					//没有压抄成功，中途退出
+					if(Y1==1)
+						return 0;
+					//退钞成功
+					else if(Y1==0)
+						return 1;	
 				}
 			}
 			vTaskDelay(10);

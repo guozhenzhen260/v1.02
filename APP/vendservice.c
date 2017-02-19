@@ -38,6 +38,7 @@ uint8_t	 	vmcEorr = 0;							//本机故障,1故障
 
 uint32_t 	g_coinAmount = 0;						//当前投币硬币总金额
 uint32_t 	g_billAmount = 0;    					//当前压入纸币总金额
+uint32_t 	g_holdValue = 0;    //当前暂存纸币金额
 uint32_t 	g_readerAmount = 0;						//当前读卡器总金额
 
 uint16_t	vmcColumn = 0;							//当前购买的商品编号
@@ -95,7 +96,7 @@ void VendService(void *pvParameters)
 ***************************************************************************************************************************************/
 uint32_t Vend_GetAmountMoney(void)
 {	
-	return (g_coinAmount + g_billAmount + g_readerAmount);
+	return (g_coinAmount + g_billAmount + g_holdValue + g_readerAmount);
 }
 /***************************************************************************************************************************************
 ** @APP Function name:   Vend_IsTuibiAPI
@@ -537,22 +538,36 @@ uint8_t Vend_GetMoney(void)
 		if(InValue > 0)
 		{
 			#ifdef DEBUG_VENDSERVICE
-			Trace("\r\n%S,%d:Current Bin Pay in:%ld",__FILE__,__LINE__,InValue);
-			#endif			
-			BillDevProcess(&billEscrow,&Billtype,MBOX_BILLESCROW,&billOptBack);
-			if(billOptBack == 2)
+			Trace("\r\n%S,%d:Current Bin Pay in:%ld,GetAmount in:%ld",__FILE__,__LINE__,InValue,Vend_GetAmountMoney());
+			#endif		
+			//需要压钞
+			if((Vend_GetAmountMoney()+InValue) < vmcPrice)
 			{
-				#ifdef DEBUG_VENDSERVICE
-				Trace("\r\n%S,%d:EscrowSuccess:%ld",__FILE__,__LINE__,InValue);
-				#endif					
-				g_billAmount += InValue;
-				LogGetMoneyAPI(InValue,2);//记录日志
-				InValue = 0;
-				return 1;
+				BillDevProcess(&billEscrow,&Billtype,MBOX_BILLESCROW,&billOptBack);
+				if(billOptBack == 2)
+				{
+					#ifdef DEBUG_VENDSERVICE
+					Trace("\r\n%S,%d:EscrowSuccess:%ld",__FILE__,__LINE__,InValue);
+					#endif					
+					g_billAmount += InValue;
+					LogGetMoneyAPI(InValue,2);//记录日志
+					InValue = 0;
+					return 1;
+				}
+				else
+				{
+					return 0;
+				}
 			}
+			//暂存
 			else
 			{
-				return 0;
+				#ifdef DEBUG_VENDSERVICE
+				Trace("\r\n%S,%d:HoldBill:%ld",__FILE__,__LINE__,InValue);
+				#endif					
+				g_holdValue = InValue;
+				InValue = 0;
+				return 1;
 			}
 		}
 	}
@@ -567,16 +582,31 @@ uint8_t Vend_GetMoney(void)
 uint32_t Vend_ChangerMoney(void)
 {	
 	uint32_t tempmoney=0,backmoney=0;
+	uint32_t billEscrow=0;
+	uint8_t  billOptBack = 0;
+	uint8_t Billtype = 0;
 	#ifdef DEBUG_VENDSERVICE
 	Trace("\r\n%S,%d:App Changer:%d",__FILE__,__LINE__,Vend_GetAmountMoney());
 	#endif
+	//暂存退币
+	if(g_holdValue)
+	{
+		#ifdef DEBUG_VENDSERVICE
+		Trace("\r\n%S,%d:App HoldReturn:%d",__FILE__,__LINE__,g_holdValue);
+		#endif
+		BillDevProcess(&billEscrow,&Billtype,MBOX_BILLRETURN,&billOptBack);
+		if(billOptBack == 4)
+		{
+			g_holdValue = 0;			
+		}		
+	}
 	tempmoney = Vend_GetAmountMoney();
 	//找零硬币
 	if(Vend_GetAmountMoney())
 	{		
 		ChangePayoutProcessLevel3(Vend_GetAmountMoney(),&backmoney);	
 		#ifdef DEBUG_VENDSERVICE
-		Trace("\r\n%S,%d:App Pay back money:%d",__FILE__,__LINE__,backmoney);
+		Trace("\r\n%S,%d:App Pay back coin:%d",__FILE__,__LINE__,backmoney);
 		#endif
 	}	
 	LogChangeAPI(backmoney);//记录日志
@@ -609,6 +639,9 @@ uint32_t Vend_ChangerMoney(void)
 ***************************************************************************************************************************************/
 void Vend_SaleCostMoney(uint32_t PriceSale)
 {	
+	uint32_t billEscrow=0;
+	uint8_t  billOptBack = 0;
+	uint8_t Billtype = 0;
 	//扣除单价
 	if(PriceSale)
 	{
@@ -622,6 +655,20 @@ void Vend_SaleCostMoney(uint32_t PriceSale)
 		}		
 		else 
 		*/
+		//暂存压钞
+		if(g_holdValue)
+		{
+			BillDevProcess(&billEscrow,&Billtype,MBOX_BILLESCROW,&billOptBack);
+			if(billOptBack == 2)
+			{
+				#ifdef DEBUG_VENDSERVICE
+				Trace("\r\n%S,%d:EscrowSuccess:%ld",__FILE__,__LINE__,g_holdValue);
+				#endif					
+				g_billAmount += g_holdValue;
+				LogGetMoneyAPI(g_holdValue,2);//记录日志
+				g_holdValue = 0;
+			}
+		}
 		if(PriceSale >= g_billAmount)
 		{
 			PriceSale -= g_billAmount;
@@ -788,16 +835,16 @@ static void VendingService(void)
 			case VMC_CHAXUN:
 				//1.轮询按键
 				if(keyValue)
-				{
-					#ifdef DEBUG_VENDSERVICE
-					Trace("\r\n%S,%d:App User press key",__FILE__,__LINE__);
-					#endif
+				{					
 					API_SYSTEM_TimerChannelSet(3,5 * 100);
 					Vend_DispChaxunPage(&keyValue);
 				}
 				keyValue = API_KEY_ReadKey();
 				if(keyValue)
-				{					
+				{		
+					#ifdef DEBUG_VENDSERVICE
+					Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);
+					#endif
 					if((keyValue >= '1') && (keyValue <= '8'))
 						vTaskDelay(2);
 					else if(keyValue == '>')
@@ -846,6 +893,12 @@ static void VendingService(void)
 					keyValue = API_KEY_ReadKey();
 					if((keyValue == '>')||(Vend_IsTuibiAPI()))
 					{
+						if(keyValue)
+						{		
+							#ifdef DEBUG_VENDSERVICE
+							Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);
+							#endif
+						}
 						Vend_ClearDealPar();
 						API_LCM_ClearScreen();
 						API_SYSTEM_TimerChannelSet(1,1 * 100);
