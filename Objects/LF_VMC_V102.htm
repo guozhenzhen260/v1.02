@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LF_VMC_V102.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LF_VMC_V102.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sun Feb 19 12:27:19 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sun Feb 19 15:37:52 2017
 <BR><P>
 <H3>Maximum Stack Usage =        600 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2246,7 +2246,7 @@ Global Symbols
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinTypeEanbleOrDisable
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_UpdateTubeMoney
+<BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_DispChaxunPage
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
@@ -2283,7 +2283,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_DispSalePage
 </UL>
 
-<P><STRONG><a name="[139]"></a>Vend_ChangerMoney</STRONG> (Thumb, 188 bytes, Stack size 32 bytes, vendservice.o(i.Vend_ChangerMoney))
+<P><STRONG><a name="[139]"></a>Vend_ChangerMoney</STRONG> (Thumb, 216 bytes, Stack size 32 bytes, vendservice.o(i.Vend_ChangerMoney))
 <BR><BR>[Stack]<UL><LI>Max Depth = 464 + Unknown Stack Size
 <LI>Call Chain = Vend_ChangerMoney &rArr; ChangePayoutProcessLevel3 &rArr; API_MDB_ExpanPayoutStatus_CoinDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2301,9 +2301,9 @@ Global Symbols
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[13c]"></a>Vend_DispChaxunPage</STRONG> (Thumb, 562 bytes, Stack size 48 bytes, vendservice.o(i.Vend_DispChaxunPage))
-<BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
-<LI>Call Chain = Vend_DispChaxunPage &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[13c]"></a>Vend_DispChaxunPage</STRONG> (Thumb, 572 bytes, Stack size 48 bytes, vendservice.o(i.Vend_DispChaxunPage))
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
+<LI>Call Chain = Vend_DispChaxunPage &rArr; Vend_BillCoinCtr &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintfMoney
@@ -2313,6 +2313,7 @@ Global Symbols
 <LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_ClearDealPar
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_CLrBusinessText
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_CLrBusinessAndLineText
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_BillCoinCtr
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
@@ -2454,7 +2455,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[149]"></a>Vend_SaleCostMoney</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, vendservice.o(i.Vend_SaleCostMoney))
+<P><STRONG><a name="[149]"></a>Vend_SaleCostMoney</STRONG> (Thumb, 176 bytes, Stack size 24 bytes, vendservice.o(i.Vend_SaleCostMoney))
 <BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
 <LI>Call Chain = Vend_SaleCostMoney &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2465,14 +2466,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[14a]"></a>Vend_UpdateTubeMoney</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, vendservice.o(i.Vend_UpdateTubeMoney))
-<BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
-<LI>Call Chain = Vend_UpdateTubeMoney &rArr; Vend_BillCoinCtr &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[14a]"></a>Vend_UpdateTubeMoney</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, vendservice.o(i.Vend_UpdateTubeMoney))
+<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
+<LI>Call Chain = Vend_UpdateTubeMoney &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbGetCoinValue
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinGetTubeStatus
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vend_BillCoinCtr
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
@@ -2892,7 +2892,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendService
 </UL>
 
-<P><STRONG><a name="[134]"></a>VendingService</STRONG> (Thumb, 1714 bytes, Stack size 40 bytes, vendservice.o(i.VendingService))
+<P><STRONG><a name="[134]"></a>VendingService</STRONG> (Thumb, 1754 bytes, Stack size 40 bytes, vendservice.o(i.VendingService))
 <BR><BR>[Stack]<UL><LI>Max Depth = 536 + Unknown Stack Size
 <LI>Call Chain = VendingService &rArr; LoadNewTradeParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>

@@ -62,6 +62,7 @@ Section Cross References
     vendservice.o(i.Vend_DispChaxunPage) refers to strcpy.o(.text) for strcpy
     vendservice.o(i.Vend_DispChaxunPage) refers to vendservice.o(i.Vend_CLrBusinessText) for Vend_CLrBusinessText
     vendservice.o(i.Vend_DispChaxunPage) refers to vendservice.o(i.Vend_DispSalePage) for Vend_DispSalePage
+    vendservice.o(i.Vend_DispChaxunPage) refers to vendservice.o(i.Vend_BillCoinCtr) for Vend_BillCoinCtr
     vendservice.o(i.Vend_DispChaxunPage) refers to system.o(i.API_SYSTEM_TimerChannelSet) for API_SYSTEM_TimerChannelSet
     vendservice.o(i.Vend_DispChaxunPage) refers to vendservice.o(.data) for vmcStatus
     vendservice.o(i.Vend_DispChaxunPage) refers to paramdefine.o(.bss) for VMCParam
@@ -138,7 +139,6 @@ Section Cross References
     vendservice.o(i.Vend_UpdateTubeMoney) refers to mdbcoindeviceoperation.o(i.MdbCoinGetTubeStatus) for MdbCoinGetTubeStatus
     vendservice.o(i.Vend_UpdateTubeMoney) refers to mdbcoindeviceoperation.o(i.MdbGetCoinValue) for MdbGetCoinValue
     vendservice.o(i.Vend_UpdateTubeMoney) refers to uart0.o(i.Trace) for Trace
-    vendservice.o(i.Vend_UpdateTubeMoney) refers to vendservice.o(i.Vend_BillCoinCtr) for Vend_BillCoinCtr
     vendservice.o(i.Vend_UpdateTubeMoney) refers to tasks.o(i.vTaskDelay) for vTaskDelay
     vendservice.o(i.Vend_UpdateTubeMoney) refers to paramdefine.o(.bss) for MDBCoinDevice
     vendservice.o(i.Vend_UpdateTubeMoney) refers to vendservice.o(.data) for vmcChangeLow
@@ -152,20 +152,20 @@ Section Cross References
     vendservice.o(i.VendingService) refers to mdbbilldeviceoperation.o(i.MdbBillResetAndSetup) for MdbBillResetAndSetup
     vendservice.o(i.VendingService) refers to mdbbilldeviceoperation.o(i.BillDevProcess) for BillDevProcess
     vendservice.o(i.VendingService) refers to system.o(i.API_SYSTEM_TimerChannelSet) for API_SYSTEM_TimerChannelSet
+    vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_BillCoinCtr) for Vend_BillCoinCtr
     vendservice.o(i.VendingService) refers to system.o(i.API_SYSTEM_TimerReadChannelValue) for API_SYSTEM_TimerReadChannelValue
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_DispFreePage) for Vend_DispFreePage
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_IsErrorState) for Vend_IsErrorState
-    vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_BillCoinCtr) for Vend_BillCoinCtr
+    vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_GetMoney) for Vend_GetMoney
+    vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_IsTuibiAPI) for Vend_IsTuibiAPI
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_UpdateTubeMoney) for Vend_UpdateTubeMoney
     vendservice.o(i.VendingService) refers to keyboard.o(i.API_KEY_ReadKey) for API_KEY_ReadKey
     vendservice.o(i.VendingService) refers to uart0.o(i.Trace) for Trace
     vendservice.o(i.VendingService) refers to display.o(i.API_LCM_DrawLine) for API_LCM_DrawLine
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_DispChaxunPage) for Vend_DispChaxunPage
-    vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_GetMoney) for Vend_GetMoney
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_DispSalePage) for Vend_DispSalePage
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_GetAmountMoney) for Vend_GetAmountMoney
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_ClearDealPar) for Vend_ClearDealPar
-    vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_IsTuibiAPI) for Vend_IsTuibiAPI
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_DispChuhuoPage) for Vend_DispChuhuoPage
     vendservice.o(i.VendingService) refers to keyboard.o(i.API_KEY_KeyboardCtrl) for API_KEY_KeyboardCtrl
     vendservice.o(i.VendingService) refers to vending.o(i.API_VENDING_Vend) for API_VENDING_Vend
@@ -173,9 +173,9 @@ Section Cross References
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_DispQuhuoPage) for Vend_DispQuhuoPage
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_SaleCostMoney) for Vend_SaleCostMoney
     vendservice.o(i.VendingService) refers to log.o(i.LogTransactionAPI) for LogTransactionAPI
-    vendservice.o(i.VendingService) refers to vendservice.o(i.DispChhuoFailPage) for DispChhuoFailPage
     vendservice.o(i.VendingService) refers to paramdefine.o(.bss) for VMCParam
     vendservice.o(i.VendingService) refers to vendservice.o(.data) for vmcStatus
+    vendservice.o(i.VendingService) refers to vendservice.o(i.DispChhuoFailPage) for DispChhuoFailPage
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_DispPayoutPage) for Vend_DispPayoutPage
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_ChangerMoney) for Vend_ChangerMoney
     vendservice.o(i.VendingService) refers to vendservice.o(i.Vend_DispIOUPage) for Vend_DispIOUPage
@@ -1843,127 +1843,127 @@ Image Symbol Table
     i.Vend_CLrBusinessText                   0x00009c0a   Section        0  vendservice.o(i.Vend_CLrBusinessText)
     i.Vend_CLrFreeText                       0x00009c20   Section        0  vendservice.o(i.Vend_CLrFreeText)
     i.Vend_ChangerMoney                      0x00009c38   Section        0  vendservice.o(i.Vend_ChangerMoney)
-    i.Vend_ClearDealPar                      0x00009d9c   Section        0  vendservice.o(i.Vend_ClearDealPar)
-    i.Vend_DispChaxunPage                    0x00009dac   Section        0  vendservice.o(i.Vend_DispChaxunPage)
-    i.Vend_DispChuhuoPage                    0x0000a0a0   Section        0  vendservice.o(i.Vend_DispChuhuoPage)
-    i.Vend_DispEndPage                       0x0000a0cc   Section        0  vendservice.o(i.Vend_DispEndPage)
-    i.Vend_DispFreePage                      0x0000a120   Section        0  vendservice.o(i.Vend_DispFreePage)
-    i.Vend_DispIOUPage                       0x0000a26c   Section        0  vendservice.o(i.Vend_DispIOUPage)
-    i.Vend_DispPayoutPage                    0x0000a2b8   Section        0  vendservice.o(i.Vend_DispPayoutPage)
-    i.Vend_DispQuChangePage                  0x0000a300   Section        0  vendservice.o(i.Vend_DispQuChangePage)
-    i.Vend_DispQuhuoPage                     0x0000a334   Section        0  vendservice.o(i.Vend_DispQuhuoPage)
-    i.Vend_DispSalePage                      0x0000a368   Section        0  vendservice.o(i.Vend_DispSalePage)
-    i.Vend_GetAmountMoney                    0x0000a3d0   Section        0  vendservice.o(i.Vend_GetAmountMoney)
-    i.Vend_GetMoney                          0x0000a3f8   Section        0  vendservice.o(i.Vend_GetMoney)
-    i.Vend_IsErrorState                      0x0000a5ec   Section        0  vendservice.o(i.Vend_IsErrorState)
-    i.Vend_IsTuibiAPI                        0x0000a728   Section        0  vendservice.o(i.Vend_IsTuibiAPI)
-    i.Vend_SaleCostMoney                     0x0000a744   Section        0  vendservice.o(i.Vend_SaleCostMoney)
-    i.Vend_UpdateTubeMoney                   0x0000a808   Section        0  vendservice.o(i.Vend_UpdateTubeMoney)
-    i.VendingIdle                            0x0000a8b8   Section        0  vendservice.o(i.VendingIdle)
-    VendingIdle                              0x0000a8b9   Thumb Code    60  vendservice.o(i.VendingIdle)
-    i.VendingService                         0x0000a8f8   Section        0  vendservice.o(i.VendingService)
-    VendingService                           0x0000a8f9   Thumb Code  1714  vendservice.o(i.VendingService)
-    i.Wait_I2C0_End                          0x0000afdc   Section        0  i2c.o(i.Wait_I2C0_End)
-    Wait_I2C0_End                            0x0000afdd   Thumb Code    48  i2c.o(i.Wait_I2C0_End)
-    i.__ARM_fpclassify                       0x0000b014   Section        0  fpclassify.o(i.__ARM_fpclassify)
-    i._is_digit                              0x0000b03c   Section        0  __printf_wp.o(i._is_digit)
-    i.main                                   0x0000b04c   Section        0  main.o(i.main)
-    i.prvAddCurrentTaskToDelayedList         0x0000b0cc   Section        0  tasks.o(i.prvAddCurrentTaskToDelayedList)
-    prvAddCurrentTaskToDelayedList           0x0000b0cd   Thumb Code   124  tasks.o(i.prvAddCurrentTaskToDelayedList)
-    i.prvAddNewTaskToReadyList               0x0000b164   Section        0  tasks.o(i.prvAddNewTaskToReadyList)
-    prvAddNewTaskToReadyList                 0x0000b165   Thumb Code   156  tasks.o(i.prvAddNewTaskToReadyList)
-    i.prvCheckTasksWaitingTermination        0x0000b21c   Section        0  tasks.o(i.prvCheckTasksWaitingTermination)
-    prvCheckTasksWaitingTermination          0x0000b21d   Thumb Code    86  tasks.o(i.prvCheckTasksWaitingTermination)
-    i.prvCopyDataFromQueue                   0x0000b280   Section        0  queue.o(i.prvCopyDataFromQueue)
-    prvCopyDataFromQueue                     0x0000b281   Thumb Code    42  queue.o(i.prvCopyDataFromQueue)
-    i.prvCopyDataToQueue                     0x0000b2aa   Section        0  queue.o(i.prvCopyDataToQueue)
-    prvCopyDataToQueue                       0x0000b2ab   Thumb Code   124  queue.o(i.prvCopyDataToQueue)
-    i.prvDeleteTCB                           0x0000b326   Section        0  tasks.o(i.prvDeleteTCB)
-    prvDeleteTCB                             0x0000b327   Thumb Code    18  tasks.o(i.prvDeleteTCB)
-    i.prvHeapInit                            0x0000b338   Section        0  heap.o(i.prvHeapInit)
-    prvHeapInit                              0x0000b339   Thumb Code    78  heap.o(i.prvHeapInit)
-    i.prvIdleTask                            0x0000b39c   Section        0  tasks.o(i.prvIdleTask)
-    prvIdleTask                              0x0000b39d   Thumb Code    36  tasks.o(i.prvIdleTask)
-    i.prvInitialiseNewQueue                  0x0000b3c8   Section        0  queue.o(i.prvInitialiseNewQueue)
-    prvInitialiseNewQueue                    0x0000b3c9   Thumb Code    42  queue.o(i.prvInitialiseNewQueue)
-    i.prvInitialiseNewTask                   0x0000b3f2   Section        0  tasks.o(i.prvInitialiseNewTask)
-    prvInitialiseNewTask                     0x0000b3f3   Thumb Code   144  tasks.o(i.prvInitialiseNewTask)
-    i.prvInitialiseTaskLists                 0x0000b484   Section        0  tasks.o(i.prvInitialiseTaskLists)
-    prvInitialiseTaskLists                   0x0000b485   Thumb Code    70  tasks.o(i.prvInitialiseTaskLists)
-    i.prvInsertBlockIntoFreeList             0x0000b4ec   Section        0  heap.o(i.prvInsertBlockIntoFreeList)
-    prvInsertBlockIntoFreeList               0x0000b4ed   Thumb Code    96  heap.o(i.prvInsertBlockIntoFreeList)
-    i.prvIsQueueEmpty                        0x0000b554   Section        0  queue.o(i.prvIsQueueEmpty)
-    prvIsQueueEmpty                          0x0000b555   Thumb Code    26  queue.o(i.prvIsQueueEmpty)
-    i.prvResetNextTaskUnblockTime            0x0000b570   Section        0  tasks.o(i.prvResetNextTaskUnblockTime)
-    prvResetNextTaskUnblockTime              0x0000b571   Thumb Code    42  tasks.o(i.prvResetNextTaskUnblockTime)
-    i.prvTaskExitError                       0x0000b5a4   Section        0  port.o(i.prvTaskExitError)
-    prvTaskExitError                         0x0000b5a5   Thumb Code    22  port.o(i.prvTaskExitError)
-    i.prvUnlockQueue                         0x0000b5ba   Section        0  queue.o(i.prvUnlockQueue)
-    prvUnlockQueue                           0x0000b5bb   Thumb Code   126  queue.o(i.prvUnlockQueue)
-    i.pvPortMalloc                           0x0000b638   Section        0  heap.o(i.pvPortMalloc)
-    i.pvTaskIncrementMutexHeldCount          0x0000b714   Section        0  tasks.o(i.pvTaskIncrementMutexHeldCount)
-    i.pxPortInitialiseStack                  0x0000b734   Section        0  port.o(i.pxPortInitialiseStack)
-    i.uxListRemove                           0x0000b758   Section        0  list.o(i.uxListRemove)
-    i.vApplicationMallocFailedHook           0x0000b780   Section        0  freertoshooks.o(i.vApplicationMallocFailedHook)
-    i.vApplicationStackOverflowHook          0x0000b7b4   Section        0  freertoshooks.o(i.vApplicationStackOverflowHook)
-    i.vApplicationTickHook                   0x0000b804   Section        0  freertoshooks.o(i.vApplicationTickHook)
-    i.vListInitialise                        0x0000b806   Section        0  list.o(i.vListInitialise)
-    i.vListInitialiseItem                    0x0000b820   Section        0  list.o(i.vListInitialiseItem)
-    i.vListInsert                            0x0000b826   Section        0  list.o(i.vListInsert)
-    i.vListInsertEnd                         0x0000b85a   Section        0  list.o(i.vListInsertEnd)
-    i.vPortEnterCritical                     0x0000b874   Section        0  port.o(i.vPortEnterCritical)
-    i.vPortExitCritical                      0x0000b898   Section        0  port.o(i.vPortExitCritical)
-    i.vPortFree                              0x0000b8b8   Section        0  heap.o(i.vPortFree)
-    i.vPortSetupTimerInterrupt               0x0000b900   Section        0  port.o(i.vPortSetupTimerInterrupt)
-    i.vTaskDelay                             0x0000b914   Section        0  tasks.o(i.vTaskDelay)
-    i.vTaskMissedYield                       0x0000b948   Section        0  tasks.o(i.vTaskMissedYield)
-    i.vTaskPlaceOnEventList                  0x0000b954   Section        0  tasks.o(i.vTaskPlaceOnEventList)
-    i.vTaskPriorityInherit                   0x0000b974   Section        0  tasks.o(i.vTaskPriorityInherit)
-    i.vTaskSetTimeOutState                   0x0000ba24   Section        0  tasks.o(i.vTaskSetTimeOutState)
-    i.vTaskStartScheduler                    0x0000ba3c   Section        0  tasks.o(i.vTaskStartScheduler)
-    i.vTaskSuspendAll                        0x0000baa0   Section        0  tasks.o(i.vTaskSuspendAll)
-    i.vTaskSwitchContext                     0x0000bab0   Section        0  tasks.o(i.vTaskSwitchContext)
-    i.xPortStartScheduler                    0x0000bb48   Section        0  port.o(i.xPortStartScheduler)
-    i.xQueueGenericCreate                    0x0000bb7c   Section        0  queue.o(i.xQueueGenericCreate)
-    i.xQueueGenericReceive                   0x0000bbb4   Section        0  queue.o(i.xQueueGenericReceive)
-    i.xQueueGenericReset                     0x0000bd10   Section        0  queue.o(i.xQueueGenericReset)
-    i.xQueueGenericSendFromISR               0x0000bd90   Section        0  queue.o(i.xQueueGenericSendFromISR)
-    i.xTaskCheckForTimeOut                   0x0000be18   Section        0  tasks.o(i.xTaskCheckForTimeOut)
-    i.xTaskCreate                            0x0000be74   Section        0  tasks.o(i.xTaskCreate)
-    i.xTaskIncrementTick                     0x0000bed4   Section        0  tasks.o(i.xTaskIncrementTick)
-    i.xTaskPriorityDisinherit                0x0000bffc   Section        0  tasks.o(i.xTaskPriorityDisinherit)
-    i.xTaskRemoveFromEventList               0x0000c080   Section        0  tasks.o(i.xTaskRemoveFromEventList)
-    i.xTaskResumeAll                         0x0000c100   Section        0  tasks.o(i.xTaskResumeAll)
-    locale$$code                             0x0000c1e8   Section       44  lc_numeric_c.o(locale$$code)
-    locale$$code                             0x0000c214   Section       44  lc_ctype_c.o(locale$$code)
-    x$fpl$printf1                            0x0000c240   Section        4  printf1.o(x$fpl$printf1)
-    .constdata                               0x0000c244   Section     1248  menu.o(.constdata)
-    x$fpl$usenofp                            0x0000c244   Section        0  usenofp.o(x$fpl$usenofp)
-    .constdata                               0x0000c724   Section       18  key.o(.constdata)
-    .constdata                               0x0000c736   Section    11320  lib.o(.constdata)
-    .constdata                               0x0000f36e   Section       17  __printf_flags_ss_wp.o(.constdata)
-    maptable                                 0x0000f36e   Data          17  __printf_flags_ss_wp.o(.constdata)
-    .constdata                               0x0000f380   Section        8  _printf_wctomb.o(.constdata)
-    initial_mbstate                          0x0000f380   Data           8  _printf_wctomb.o(.constdata)
-    .constdata                               0x0000f388   Section       40  _printf_hex_int_ll_ptr.o(.constdata)
-    uc_hextab                                0x0000f388   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
-    lc_hextab                                0x0000f39c   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
-    .constdata                               0x0000f3b0   Section      148  bigflt0.o(.constdata)
-    tenpwrs_x                                0x0000f3b0   Data          60  bigflt0.o(.constdata)
-    tenpwrs_i                                0x0000f3ec   Data          64  bigflt0.o(.constdata)
-    .conststring                             0x0000f444   Section     4272  menu.o(.conststring)
-    .conststring                             0x000104f4   Section      569  motor.o(.conststring)
-    locale$$data                             0x00010760   Section       28  lc_numeric_c.o(locale$$data)
-    __lcnum_c_name                           0x00010764   Data           2  lc_numeric_c.o(locale$$data)
-    __lcnum_c_start                          0x0001076c   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_point                          0x00010778   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_thousands                      0x0001077a   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_grouping                       0x0001077b   Data           0  lc_numeric_c.o(locale$$data)
-    locale$$data                             0x0001077c   Section      272  lc_ctype_c.o(locale$$data)
-    __lcnum_c_end                            0x0001077c   Data           0  lc_numeric_c.o(locale$$data)
-    __lcctype_c_name                         0x00010780   Data           2  lc_ctype_c.o(locale$$data)
-    __lcctype_c_start                        0x00010788   Data           0  lc_ctype_c.o(locale$$data)
-    __lcctype_c_end                          0x0001088c   Data           0  lc_ctype_c.o(locale$$data)
+    i.Vend_ClearDealPar                      0x00009ddc   Section        0  vendservice.o(i.Vend_ClearDealPar)
+    i.Vend_DispChaxunPage                    0x00009dec   Section        0  vendservice.o(i.Vend_DispChaxunPage)
+    i.Vend_DispChuhuoPage                    0x0000a0e8   Section        0  vendservice.o(i.Vend_DispChuhuoPage)
+    i.Vend_DispEndPage                       0x0000a114   Section        0  vendservice.o(i.Vend_DispEndPage)
+    i.Vend_DispFreePage                      0x0000a168   Section        0  vendservice.o(i.Vend_DispFreePage)
+    i.Vend_DispIOUPage                       0x0000a2b4   Section        0  vendservice.o(i.Vend_DispIOUPage)
+    i.Vend_DispPayoutPage                    0x0000a300   Section        0  vendservice.o(i.Vend_DispPayoutPage)
+    i.Vend_DispQuChangePage                  0x0000a348   Section        0  vendservice.o(i.Vend_DispQuChangePage)
+    i.Vend_DispQuhuoPage                     0x0000a37c   Section        0  vendservice.o(i.Vend_DispQuhuoPage)
+    i.Vend_DispSalePage                      0x0000a3b0   Section        0  vendservice.o(i.Vend_DispSalePage)
+    i.Vend_GetAmountMoney                    0x0000a418   Section        0  vendservice.o(i.Vend_GetAmountMoney)
+    i.Vend_GetMoney                          0x0000a440   Section        0  vendservice.o(i.Vend_GetMoney)
+    i.Vend_IsErrorState                      0x0000a634   Section        0  vendservice.o(i.Vend_IsErrorState)
+    i.Vend_IsTuibiAPI                        0x0000a770   Section        0  vendservice.o(i.Vend_IsTuibiAPI)
+    i.Vend_SaleCostMoney                     0x0000a78c   Section        0  vendservice.o(i.Vend_SaleCostMoney)
+    i.Vend_UpdateTubeMoney                   0x0000a890   Section        0  vendservice.o(i.Vend_UpdateTubeMoney)
+    i.VendingIdle                            0x0000a92c   Section        0  vendservice.o(i.VendingIdle)
+    VendingIdle                              0x0000a92d   Thumb Code    60  vendservice.o(i.VendingIdle)
+    i.VendingService                         0x0000a96c   Section        0  vendservice.o(i.VendingService)
+    VendingService                           0x0000a96d   Thumb Code  1754  vendservice.o(i.VendingService)
+    i.Wait_I2C0_End                          0x0000b098   Section        0  i2c.o(i.Wait_I2C0_End)
+    Wait_I2C0_End                            0x0000b099   Thumb Code    48  i2c.o(i.Wait_I2C0_End)
+    i.__ARM_fpclassify                       0x0000b0d0   Section        0  fpclassify.o(i.__ARM_fpclassify)
+    i._is_digit                              0x0000b0f8   Section        0  __printf_wp.o(i._is_digit)
+    i.main                                   0x0000b108   Section        0  main.o(i.main)
+    i.prvAddCurrentTaskToDelayedList         0x0000b188   Section        0  tasks.o(i.prvAddCurrentTaskToDelayedList)
+    prvAddCurrentTaskToDelayedList           0x0000b189   Thumb Code   124  tasks.o(i.prvAddCurrentTaskToDelayedList)
+    i.prvAddNewTaskToReadyList               0x0000b220   Section        0  tasks.o(i.prvAddNewTaskToReadyList)
+    prvAddNewTaskToReadyList                 0x0000b221   Thumb Code   156  tasks.o(i.prvAddNewTaskToReadyList)
+    i.prvCheckTasksWaitingTermination        0x0000b2d8   Section        0  tasks.o(i.prvCheckTasksWaitingTermination)
+    prvCheckTasksWaitingTermination          0x0000b2d9   Thumb Code    86  tasks.o(i.prvCheckTasksWaitingTermination)
+    i.prvCopyDataFromQueue                   0x0000b33c   Section        0  queue.o(i.prvCopyDataFromQueue)
+    prvCopyDataFromQueue                     0x0000b33d   Thumb Code    42  queue.o(i.prvCopyDataFromQueue)
+    i.prvCopyDataToQueue                     0x0000b366   Section        0  queue.o(i.prvCopyDataToQueue)
+    prvCopyDataToQueue                       0x0000b367   Thumb Code   124  queue.o(i.prvCopyDataToQueue)
+    i.prvDeleteTCB                           0x0000b3e2   Section        0  tasks.o(i.prvDeleteTCB)
+    prvDeleteTCB                             0x0000b3e3   Thumb Code    18  tasks.o(i.prvDeleteTCB)
+    i.prvHeapInit                            0x0000b3f4   Section        0  heap.o(i.prvHeapInit)
+    prvHeapInit                              0x0000b3f5   Thumb Code    78  heap.o(i.prvHeapInit)
+    i.prvIdleTask                            0x0000b458   Section        0  tasks.o(i.prvIdleTask)
+    prvIdleTask                              0x0000b459   Thumb Code    36  tasks.o(i.prvIdleTask)
+    i.prvInitialiseNewQueue                  0x0000b484   Section        0  queue.o(i.prvInitialiseNewQueue)
+    prvInitialiseNewQueue                    0x0000b485   Thumb Code    42  queue.o(i.prvInitialiseNewQueue)
+    i.prvInitialiseNewTask                   0x0000b4ae   Section        0  tasks.o(i.prvInitialiseNewTask)
+    prvInitialiseNewTask                     0x0000b4af   Thumb Code   144  tasks.o(i.prvInitialiseNewTask)
+    i.prvInitialiseTaskLists                 0x0000b540   Section        0  tasks.o(i.prvInitialiseTaskLists)
+    prvInitialiseTaskLists                   0x0000b541   Thumb Code    70  tasks.o(i.prvInitialiseTaskLists)
+    i.prvInsertBlockIntoFreeList             0x0000b5a8   Section        0  heap.o(i.prvInsertBlockIntoFreeList)
+    prvInsertBlockIntoFreeList               0x0000b5a9   Thumb Code    96  heap.o(i.prvInsertBlockIntoFreeList)
+    i.prvIsQueueEmpty                        0x0000b610   Section        0  queue.o(i.prvIsQueueEmpty)
+    prvIsQueueEmpty                          0x0000b611   Thumb Code    26  queue.o(i.prvIsQueueEmpty)
+    i.prvResetNextTaskUnblockTime            0x0000b62c   Section        0  tasks.o(i.prvResetNextTaskUnblockTime)
+    prvResetNextTaskUnblockTime              0x0000b62d   Thumb Code    42  tasks.o(i.prvResetNextTaskUnblockTime)
+    i.prvTaskExitError                       0x0000b660   Section        0  port.o(i.prvTaskExitError)
+    prvTaskExitError                         0x0000b661   Thumb Code    22  port.o(i.prvTaskExitError)
+    i.prvUnlockQueue                         0x0000b676   Section        0  queue.o(i.prvUnlockQueue)
+    prvUnlockQueue                           0x0000b677   Thumb Code   126  queue.o(i.prvUnlockQueue)
+    i.pvPortMalloc                           0x0000b6f4   Section        0  heap.o(i.pvPortMalloc)
+    i.pvTaskIncrementMutexHeldCount          0x0000b7d0   Section        0  tasks.o(i.pvTaskIncrementMutexHeldCount)
+    i.pxPortInitialiseStack                  0x0000b7f0   Section        0  port.o(i.pxPortInitialiseStack)
+    i.uxListRemove                           0x0000b814   Section        0  list.o(i.uxListRemove)
+    i.vApplicationMallocFailedHook           0x0000b83c   Section        0  freertoshooks.o(i.vApplicationMallocFailedHook)
+    i.vApplicationStackOverflowHook          0x0000b870   Section        0  freertoshooks.o(i.vApplicationStackOverflowHook)
+    i.vApplicationTickHook                   0x0000b8c0   Section        0  freertoshooks.o(i.vApplicationTickHook)
+    i.vListInitialise                        0x0000b8c2   Section        0  list.o(i.vListInitialise)
+    i.vListInitialiseItem                    0x0000b8dc   Section        0  list.o(i.vListInitialiseItem)
+    i.vListInsert                            0x0000b8e2   Section        0  list.o(i.vListInsert)
+    i.vListInsertEnd                         0x0000b916   Section        0  list.o(i.vListInsertEnd)
+    i.vPortEnterCritical                     0x0000b930   Section        0  port.o(i.vPortEnterCritical)
+    i.vPortExitCritical                      0x0000b954   Section        0  port.o(i.vPortExitCritical)
+    i.vPortFree                              0x0000b974   Section        0  heap.o(i.vPortFree)
+    i.vPortSetupTimerInterrupt               0x0000b9bc   Section        0  port.o(i.vPortSetupTimerInterrupt)
+    i.vTaskDelay                             0x0000b9d0   Section        0  tasks.o(i.vTaskDelay)
+    i.vTaskMissedYield                       0x0000ba04   Section        0  tasks.o(i.vTaskMissedYield)
+    i.vTaskPlaceOnEventList                  0x0000ba10   Section        0  tasks.o(i.vTaskPlaceOnEventList)
+    i.vTaskPriorityInherit                   0x0000ba30   Section        0  tasks.o(i.vTaskPriorityInherit)
+    i.vTaskSetTimeOutState                   0x0000bae0   Section        0  tasks.o(i.vTaskSetTimeOutState)
+    i.vTaskStartScheduler                    0x0000baf8   Section        0  tasks.o(i.vTaskStartScheduler)
+    i.vTaskSuspendAll                        0x0000bb5c   Section        0  tasks.o(i.vTaskSuspendAll)
+    i.vTaskSwitchContext                     0x0000bb6c   Section        0  tasks.o(i.vTaskSwitchContext)
+    i.xPortStartScheduler                    0x0000bc04   Section        0  port.o(i.xPortStartScheduler)
+    i.xQueueGenericCreate                    0x0000bc38   Section        0  queue.o(i.xQueueGenericCreate)
+    i.xQueueGenericReceive                   0x0000bc70   Section        0  queue.o(i.xQueueGenericReceive)
+    i.xQueueGenericReset                     0x0000bdcc   Section        0  queue.o(i.xQueueGenericReset)
+    i.xQueueGenericSendFromISR               0x0000be4c   Section        0  queue.o(i.xQueueGenericSendFromISR)
+    i.xTaskCheckForTimeOut                   0x0000bed4   Section        0  tasks.o(i.xTaskCheckForTimeOut)
+    i.xTaskCreate                            0x0000bf30   Section        0  tasks.o(i.xTaskCreate)
+    i.xTaskIncrementTick                     0x0000bf90   Section        0  tasks.o(i.xTaskIncrementTick)
+    i.xTaskPriorityDisinherit                0x0000c0b8   Section        0  tasks.o(i.xTaskPriorityDisinherit)
+    i.xTaskRemoveFromEventList               0x0000c13c   Section        0  tasks.o(i.xTaskRemoveFromEventList)
+    i.xTaskResumeAll                         0x0000c1bc   Section        0  tasks.o(i.xTaskResumeAll)
+    locale$$code                             0x0000c2a4   Section       44  lc_numeric_c.o(locale$$code)
+    locale$$code                             0x0000c2d0   Section       44  lc_ctype_c.o(locale$$code)
+    x$fpl$printf1                            0x0000c2fc   Section        4  printf1.o(x$fpl$printf1)
+    .constdata                               0x0000c300   Section     1248  menu.o(.constdata)
+    x$fpl$usenofp                            0x0000c300   Section        0  usenofp.o(x$fpl$usenofp)
+    .constdata                               0x0000c7e0   Section       18  key.o(.constdata)
+    .constdata                               0x0000c7f2   Section    11320  lib.o(.constdata)
+    .constdata                               0x0000f42a   Section       17  __printf_flags_ss_wp.o(.constdata)
+    maptable                                 0x0000f42a   Data          17  __printf_flags_ss_wp.o(.constdata)
+    .constdata                               0x0000f43c   Section        8  _printf_wctomb.o(.constdata)
+    initial_mbstate                          0x0000f43c   Data           8  _printf_wctomb.o(.constdata)
+    .constdata                               0x0000f444   Section       40  _printf_hex_int_ll_ptr.o(.constdata)
+    uc_hextab                                0x0000f444   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
+    lc_hextab                                0x0000f458   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
+    .constdata                               0x0000f46c   Section      148  bigflt0.o(.constdata)
+    tenpwrs_x                                0x0000f46c   Data          60  bigflt0.o(.constdata)
+    tenpwrs_i                                0x0000f4a8   Data          64  bigflt0.o(.constdata)
+    .conststring                             0x0000f500   Section     4272  menu.o(.conststring)
+    .conststring                             0x000105b0   Section      569  motor.o(.conststring)
+    locale$$data                             0x0001081c   Section       28  lc_numeric_c.o(locale$$data)
+    __lcnum_c_name                           0x00010820   Data           2  lc_numeric_c.o(locale$$data)
+    __lcnum_c_start                          0x00010828   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_point                          0x00010834   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_thousands                      0x00010836   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_grouping                       0x00010837   Data           0  lc_numeric_c.o(locale$$data)
+    locale$$data                             0x00010838   Section      272  lc_ctype_c.o(locale$$data)
+    __lcnum_c_end                            0x00010838   Data           0  lc_numeric_c.o(locale$$data)
+    __lcctype_c_name                         0x0001083c   Data           2  lc_ctype_c.o(locale$$data)
+    __lcctype_c_start                        0x00010844   Data           0  lc_ctype_c.o(locale$$data)
+    __lcctype_c_end                          0x00010948   Data           0  lc_ctype_c.o(locale$$data)
     .bss                                     0x10000000   Section    16384  heap.o(.bss)
     ucHeap                                   0x10000000   Data       16384  heap.o(.bss)
     .data                                    0x2007c000   Section       34  vendservice.o(.data)
@@ -2393,92 +2393,92 @@ Image Symbol Table
     Vend_CLrBusinessAndLineText              0x00009bf5   Thumb Code    22  vendservice.o(i.Vend_CLrBusinessAndLineText)
     Vend_CLrBusinessText                     0x00009c0b   Thumb Code    22  vendservice.o(i.Vend_CLrBusinessText)
     Vend_CLrFreeText                         0x00009c21   Thumb Code    22  vendservice.o(i.Vend_CLrFreeText)
-    Vend_ChangerMoney                        0x00009c39   Thumb Code   188  vendservice.o(i.Vend_ChangerMoney)
-    Vend_ClearDealPar                        0x00009d9d   Thumb Code    10  vendservice.o(i.Vend_ClearDealPar)
-    Vend_DispChaxunPage                      0x00009dad   Thumb Code   562  vendservice.o(i.Vend_DispChaxunPage)
-    Vend_DispChuhuoPage                      0x0000a0a1   Thumb Code    34  vendservice.o(i.Vend_DispChuhuoPage)
-    Vend_DispEndPage                         0x0000a0cd   Thumb Code    74  vendservice.o(i.Vend_DispEndPage)
-    Vend_DispFreePage                        0x0000a121   Thumb Code   288  vendservice.o(i.Vend_DispFreePage)
-    Vend_DispIOUPage                         0x0000a26d   Thumb Code    68  vendservice.o(i.Vend_DispIOUPage)
-    Vend_DispPayoutPage                      0x0000a2b9   Thumb Code    62  vendservice.o(i.Vend_DispPayoutPage)
-    Vend_DispQuChangePage                    0x0000a301   Thumb Code    42  vendservice.o(i.Vend_DispQuChangePage)
-    Vend_DispQuhuoPage                       0x0000a335   Thumb Code    42  vendservice.o(i.Vend_DispQuhuoPage)
-    Vend_DispSalePage                        0x0000a369   Thumb Code    92  vendservice.o(i.Vend_DispSalePage)
-    Vend_GetAmountMoney                      0x0000a3d1   Thumb Code    24  vendservice.o(i.Vend_GetAmountMoney)
-    Vend_GetMoney                            0x0000a3f9   Thumb Code   284  vendservice.o(i.Vend_GetMoney)
-    Vend_IsErrorState                        0x0000a5ed   Thumb Code   198  vendservice.o(i.Vend_IsErrorState)
-    Vend_IsTuibiAPI                          0x0000a729   Thumb Code    22  vendservice.o(i.Vend_IsTuibiAPI)
-    Vend_SaleCostMoney                       0x0000a745   Thumb Code   136  vendservice.o(i.Vend_SaleCostMoney)
-    Vend_UpdateTubeMoney                     0x0000a809   Thumb Code   114  vendservice.o(i.Vend_UpdateTubeMoney)
-    __ARM_fpclassify                         0x0000b015   Thumb Code    40  fpclassify.o(i.__ARM_fpclassify)
-    _is_digit                                0x0000b03d   Thumb Code    14  __printf_wp.o(i._is_digit)
-    main                                     0x0000b04d   Thumb Code    74  main.o(i.main)
-    pvPortMalloc                             0x0000b639   Thumb Code   198  heap.o(i.pvPortMalloc)
-    pvTaskIncrementMutexHeldCount            0x0000b715   Thumb Code    26  tasks.o(i.pvTaskIncrementMutexHeldCount)
-    pxPortInitialiseStack                    0x0000b735   Thumb Code    30  port.o(i.pxPortInitialiseStack)
-    uxListRemove                             0x0000b759   Thumb Code    40  list.o(i.uxListRemove)
-    vApplicationMallocFailedHook             0x0000b781   Thumb Code    10  freertoshooks.o(i.vApplicationMallocFailedHook)
-    vApplicationStackOverflowHook            0x0000b7b5   Thumb Code    32  freertoshooks.o(i.vApplicationStackOverflowHook)
-    vApplicationTickHook                     0x0000b805   Thumb Code     2  freertoshooks.o(i.vApplicationTickHook)
-    vListInitialise                          0x0000b807   Thumb Code    26  list.o(i.vListInitialise)
-    vListInitialiseItem                      0x0000b821   Thumb Code     6  list.o(i.vListInitialiseItem)
-    vListInsert                              0x0000b827   Thumb Code    52  list.o(i.vListInsert)
-    vListInsertEnd                           0x0000b85b   Thumb Code    24  list.o(i.vListInsertEnd)
-    vPortEnterCritical                       0x0000b875   Thumb Code    30  port.o(i.vPortEnterCritical)
-    vPortExitCritical                        0x0000b899   Thumb Code    28  port.o(i.vPortExitCritical)
-    vPortFree                                0x0000b8b9   Thumb Code    64  heap.o(i.vPortFree)
-    vPortSetupTimerInterrupt                 0x0000b901   Thumb Code    14  port.o(i.vPortSetupTimerInterrupt)
-    vTaskDelay                               0x0000b915   Thumb Code    46  tasks.o(i.vTaskDelay)
-    vTaskMissedYield                         0x0000b949   Thumb Code     8  tasks.o(i.vTaskMissedYield)
-    vTaskPlaceOnEventList                    0x0000b955   Thumb Code    28  tasks.o(i.vTaskPlaceOnEventList)
-    vTaskPriorityInherit                     0x0000b975   Thumb Code   164  tasks.o(i.vTaskPriorityInherit)
-    vTaskSetTimeOutState                     0x0000ba25   Thumb Code    14  tasks.o(i.vTaskSetTimeOutState)
-    vTaskStartScheduler                      0x0000ba3d   Thumb Code    72  tasks.o(i.vTaskStartScheduler)
-    vTaskSuspendAll                          0x0000baa1   Thumb Code    12  tasks.o(i.vTaskSuspendAll)
-    vTaskSwitchContext                       0x0000bab1   Thumb Code   132  tasks.o(i.vTaskSwitchContext)
-    xPortStartScheduler                      0x0000bb49   Thumb Code    42  port.o(i.xPortStartScheduler)
-    xQueueGenericCreate                      0x0000bb7d   Thumb Code    56  queue.o(i.xQueueGenericCreate)
-    xQueueGenericReceive                     0x0000bbb5   Thumb Code   342  queue.o(i.xQueueGenericReceive)
-    xQueueGenericReset                       0x0000bd11   Thumb Code   122  queue.o(i.xQueueGenericReset)
-    xQueueGenericSendFromISR                 0x0000bd91   Thumb Code   134  queue.o(i.xQueueGenericSendFromISR)
-    xTaskCheckForTimeOut                     0x0000be19   Thumb Code    84  tasks.o(i.xTaskCheckForTimeOut)
-    xTaskCreate                              0x0000be75   Thumb Code    96  tasks.o(i.xTaskCreate)
-    xTaskIncrementTick                       0x0000bed5   Thumb Code   252  tasks.o(i.xTaskIncrementTick)
-    xTaskPriorityDisinherit                  0x0000bffd   Thumb Code   122  tasks.o(i.xTaskPriorityDisinherit)
-    xTaskRemoveFromEventList                 0x0000c081   Thumb Code   104  tasks.o(i.xTaskRemoveFromEventList)
-    xTaskResumeAll                           0x0000c101   Thumb Code   196  tasks.o(i.xTaskResumeAll)
-    _get_lc_numeric                          0x0000c1e9   Thumb Code    44  lc_numeric_c.o(locale$$code)
-    _get_lc_ctype                            0x0000c215   Thumb Code    44  lc_ctype_c.o(locale$$code)
-    _printf_fp_dec                           0x0000c241   Thumb Code     4  printf1.o(x$fpl$printf1)
-    UIMenu                                   0x0000c244   Data         112  menu.o(.constdata)
-    __I$use$fp                               0x0000c244   Number         0  usenofp.o(x$fpl$usenofp)
-    LoginUI                                  0x0000c2b4   Data          32  menu.o(.constdata)
-    MaintenUI                                0x0000c2d4   Data          56  menu.o(.constdata)
-    DevInfo                                  0x0000c30c   Data          40  menu.o(.constdata)
-    DevConfig                                0x0000c334   Data         112  menu.o(.constdata)
-    DevTest                                  0x0000c3a4   Data          48  menu.o(.constdata)
-    BillTest                                 0x0000c3d4   Data          80  menu.o(.constdata)
-    CoinTest                                 0x0000c424   Data          88  menu.o(.constdata)
-    CashlessTest                             0x0000c47c   Data          80  menu.o(.constdata)
-    ChannelTest                              0x0000c4cc   Data          80  menu.o(.constdata)
-    TradeConfig                              0x0000c51c   Data          56  menu.o(.constdata)
-    TradeConfigGC                            0x0000c554   Data          72  menu.o(.constdata)
-    TradeConfigBillEscrow                    0x0000c59c   Data          72  menu.o(.constdata)
-    TradeConfigBillChannel                   0x0000c5e4   Data          72  menu.o(.constdata)
-    TradeConfigCoinChannel                   0x0000c62c   Data          48  menu.o(.constdata)
-    TradeConfigAddGoods                      0x0000c65c   Data         144  menu.o(.constdata)
-    TradeLog                                 0x0000c6ec   Data          56  menu.o(.constdata)
-    KEYTABLE                                 0x0000c724   Data          18  key.o(.constdata)
-    ASCII16X8INDEX                           0x0000c736   Data          93  lib.o(.constdata)
-    ASCII16X8LIB                             0x0000c793   Data        1472  lib.o(.constdata)
-    ASCII32X16INDEX                          0x0000cd53   Data          12  lib.o(.constdata)
-    ASCII32X16LIB                            0x0000cd5f   Data         704  lib.o(.constdata)
-    RMB                                      0x0000d01f   Data          96  lib.o(.constdata)
-    CHINESE16X16INDEX                        0x0000d07f   Data         527  lib.o(.constdata)
-    CHINESE16X16LIB                          0x0000d28e   Data        8416  lib.o(.constdata)
-    Region$$Table$$Base                      0x00010730   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00010760   Number         0  anon$$obj.o(Region$$Table)
-    __ctype                                  0x00010789   Data           0  lc_ctype_c.o(locale$$data)
+    Vend_ChangerMoney                        0x00009c39   Thumb Code   216  vendservice.o(i.Vend_ChangerMoney)
+    Vend_ClearDealPar                        0x00009ddd   Thumb Code    10  vendservice.o(i.Vend_ClearDealPar)
+    Vend_DispChaxunPage                      0x00009ded   Thumb Code   572  vendservice.o(i.Vend_DispChaxunPage)
+    Vend_DispChuhuoPage                      0x0000a0e9   Thumb Code    34  vendservice.o(i.Vend_DispChuhuoPage)
+    Vend_DispEndPage                         0x0000a115   Thumb Code    74  vendservice.o(i.Vend_DispEndPage)
+    Vend_DispFreePage                        0x0000a169   Thumb Code   288  vendservice.o(i.Vend_DispFreePage)
+    Vend_DispIOUPage                         0x0000a2b5   Thumb Code    68  vendservice.o(i.Vend_DispIOUPage)
+    Vend_DispPayoutPage                      0x0000a301   Thumb Code    62  vendservice.o(i.Vend_DispPayoutPage)
+    Vend_DispQuChangePage                    0x0000a349   Thumb Code    42  vendservice.o(i.Vend_DispQuChangePage)
+    Vend_DispQuhuoPage                       0x0000a37d   Thumb Code    42  vendservice.o(i.Vend_DispQuhuoPage)
+    Vend_DispSalePage                        0x0000a3b1   Thumb Code    92  vendservice.o(i.Vend_DispSalePage)
+    Vend_GetAmountMoney                      0x0000a419   Thumb Code    24  vendservice.o(i.Vend_GetAmountMoney)
+    Vend_GetMoney                            0x0000a441   Thumb Code   284  vendservice.o(i.Vend_GetMoney)
+    Vend_IsErrorState                        0x0000a635   Thumb Code   198  vendservice.o(i.Vend_IsErrorState)
+    Vend_IsTuibiAPI                          0x0000a771   Thumb Code    22  vendservice.o(i.Vend_IsTuibiAPI)
+    Vend_SaleCostMoney                       0x0000a78d   Thumb Code   176  vendservice.o(i.Vend_SaleCostMoney)
+    Vend_UpdateTubeMoney                     0x0000a891   Thumb Code    94  vendservice.o(i.Vend_UpdateTubeMoney)
+    __ARM_fpclassify                         0x0000b0d1   Thumb Code    40  fpclassify.o(i.__ARM_fpclassify)
+    _is_digit                                0x0000b0f9   Thumb Code    14  __printf_wp.o(i._is_digit)
+    main                                     0x0000b109   Thumb Code    74  main.o(i.main)
+    pvPortMalloc                             0x0000b6f5   Thumb Code   198  heap.o(i.pvPortMalloc)
+    pvTaskIncrementMutexHeldCount            0x0000b7d1   Thumb Code    26  tasks.o(i.pvTaskIncrementMutexHeldCount)
+    pxPortInitialiseStack                    0x0000b7f1   Thumb Code    30  port.o(i.pxPortInitialiseStack)
+    uxListRemove                             0x0000b815   Thumb Code    40  list.o(i.uxListRemove)
+    vApplicationMallocFailedHook             0x0000b83d   Thumb Code    10  freertoshooks.o(i.vApplicationMallocFailedHook)
+    vApplicationStackOverflowHook            0x0000b871   Thumb Code    32  freertoshooks.o(i.vApplicationStackOverflowHook)
+    vApplicationTickHook                     0x0000b8c1   Thumb Code     2  freertoshooks.o(i.vApplicationTickHook)
+    vListInitialise                          0x0000b8c3   Thumb Code    26  list.o(i.vListInitialise)
+    vListInitialiseItem                      0x0000b8dd   Thumb Code     6  list.o(i.vListInitialiseItem)
+    vListInsert                              0x0000b8e3   Thumb Code    52  list.o(i.vListInsert)
+    vListInsertEnd                           0x0000b917   Thumb Code    24  list.o(i.vListInsertEnd)
+    vPortEnterCritical                       0x0000b931   Thumb Code    30  port.o(i.vPortEnterCritical)
+    vPortExitCritical                        0x0000b955   Thumb Code    28  port.o(i.vPortExitCritical)
+    vPortFree                                0x0000b975   Thumb Code    64  heap.o(i.vPortFree)
+    vPortSetupTimerInterrupt                 0x0000b9bd   Thumb Code    14  port.o(i.vPortSetupTimerInterrupt)
+    vTaskDelay                               0x0000b9d1   Thumb Code    46  tasks.o(i.vTaskDelay)
+    vTaskMissedYield                         0x0000ba05   Thumb Code     8  tasks.o(i.vTaskMissedYield)
+    vTaskPlaceOnEventList                    0x0000ba11   Thumb Code    28  tasks.o(i.vTaskPlaceOnEventList)
+    vTaskPriorityInherit                     0x0000ba31   Thumb Code   164  tasks.o(i.vTaskPriorityInherit)
+    vTaskSetTimeOutState                     0x0000bae1   Thumb Code    14  tasks.o(i.vTaskSetTimeOutState)
+    vTaskStartScheduler                      0x0000baf9   Thumb Code    72  tasks.o(i.vTaskStartScheduler)
+    vTaskSuspendAll                          0x0000bb5d   Thumb Code    12  tasks.o(i.vTaskSuspendAll)
+    vTaskSwitchContext                       0x0000bb6d   Thumb Code   132  tasks.o(i.vTaskSwitchContext)
+    xPortStartScheduler                      0x0000bc05   Thumb Code    42  port.o(i.xPortStartScheduler)
+    xQueueGenericCreate                      0x0000bc39   Thumb Code    56  queue.o(i.xQueueGenericCreate)
+    xQueueGenericReceive                     0x0000bc71   Thumb Code   342  queue.o(i.xQueueGenericReceive)
+    xQueueGenericReset                       0x0000bdcd   Thumb Code   122  queue.o(i.xQueueGenericReset)
+    xQueueGenericSendFromISR                 0x0000be4d   Thumb Code   134  queue.o(i.xQueueGenericSendFromISR)
+    xTaskCheckForTimeOut                     0x0000bed5   Thumb Code    84  tasks.o(i.xTaskCheckForTimeOut)
+    xTaskCreate                              0x0000bf31   Thumb Code    96  tasks.o(i.xTaskCreate)
+    xTaskIncrementTick                       0x0000bf91   Thumb Code   252  tasks.o(i.xTaskIncrementTick)
+    xTaskPriorityDisinherit                  0x0000c0b9   Thumb Code   122  tasks.o(i.xTaskPriorityDisinherit)
+    xTaskRemoveFromEventList                 0x0000c13d   Thumb Code   104  tasks.o(i.xTaskRemoveFromEventList)
+    xTaskResumeAll                           0x0000c1bd   Thumb Code   196  tasks.o(i.xTaskResumeAll)
+    _get_lc_numeric                          0x0000c2a5   Thumb Code    44  lc_numeric_c.o(locale$$code)
+    _get_lc_ctype                            0x0000c2d1   Thumb Code    44  lc_ctype_c.o(locale$$code)
+    _printf_fp_dec                           0x0000c2fd   Thumb Code     4  printf1.o(x$fpl$printf1)
+    UIMenu                                   0x0000c300   Data         112  menu.o(.constdata)
+    __I$use$fp                               0x0000c300   Number         0  usenofp.o(x$fpl$usenofp)
+    LoginUI                                  0x0000c370   Data          32  menu.o(.constdata)
+    MaintenUI                                0x0000c390   Data          56  menu.o(.constdata)
+    DevInfo                                  0x0000c3c8   Data          40  menu.o(.constdata)
+    DevConfig                                0x0000c3f0   Data         112  menu.o(.constdata)
+    DevTest                                  0x0000c460   Data          48  menu.o(.constdata)
+    BillTest                                 0x0000c490   Data          80  menu.o(.constdata)
+    CoinTest                                 0x0000c4e0   Data          88  menu.o(.constdata)
+    CashlessTest                             0x0000c538   Data          80  menu.o(.constdata)
+    ChannelTest                              0x0000c588   Data          80  menu.o(.constdata)
+    TradeConfig                              0x0000c5d8   Data          56  menu.o(.constdata)
+    TradeConfigGC                            0x0000c610   Data          72  menu.o(.constdata)
+    TradeConfigBillEscrow                    0x0000c658   Data          72  menu.o(.constdata)
+    TradeConfigBillChannel                   0x0000c6a0   Data          72  menu.o(.constdata)
+    TradeConfigCoinChannel                   0x0000c6e8   Data          48  menu.o(.constdata)
+    TradeConfigAddGoods                      0x0000c718   Data         144  menu.o(.constdata)
+    TradeLog                                 0x0000c7a8   Data          56  menu.o(.constdata)
+    KEYTABLE                                 0x0000c7e0   Data          18  key.o(.constdata)
+    ASCII16X8INDEX                           0x0000c7f2   Data          93  lib.o(.constdata)
+    ASCII16X8LIB                             0x0000c84f   Data        1472  lib.o(.constdata)
+    ASCII32X16INDEX                          0x0000ce0f   Data          12  lib.o(.constdata)
+    ASCII32X16LIB                            0x0000ce1b   Data         704  lib.o(.constdata)
+    RMB                                      0x0000d0db   Data          96  lib.o(.constdata)
+    CHINESE16X16INDEX                        0x0000d13b   Data         527  lib.o(.constdata)
+    CHINESE16X16LIB                          0x0000d34a   Data        8416  lib.o(.constdata)
+    Region$$Table$$Base                      0x000107ec   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0001081c   Number         0  anon$$obj.o(Region$$Table)
+    __ctype                                  0x00010845   Data           0  lc_ctype_c.o(locale$$data)
     ChannelNum                               0x2007c000   Data           3  vendservice.o(.data)
     vmcStatus                                0x2007c003   Data           1  vendservice.o(.data)
     vmcChangeLow                             0x2007c004   Data           1  vendservice.o(.data)
@@ -2536,9 +2536,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000cd
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00010970, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00010a2c, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x0001088c, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00010948, Max: 0x00080000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2842,102 +2842,102 @@ Memory Map of the image
     0x00009c0a   0x00000016   Code   RO          210    i.Vend_CLrBusinessText  vendservice.o
     0x00009c20   0x00000016   Code   RO          211    i.Vend_CLrFreeText  vendservice.o
     0x00009c36   0x00000002   PAD
-    0x00009c38   0x00000164   Code   RO          212    i.Vend_ChangerMoney  vendservice.o
-    0x00009d9c   0x00000010   Code   RO          213    i.Vend_ClearDealPar  vendservice.o
-    0x00009dac   0x000002f4   Code   RO          214    i.Vend_DispChaxunPage  vendservice.o
-    0x0000a0a0   0x0000002c   Code   RO          215    i.Vend_DispChuhuoPage  vendservice.o
-    0x0000a0cc   0x00000054   Code   RO          216    i.Vend_DispEndPage  vendservice.o
-    0x0000a120   0x0000014c   Code   RO          217    i.Vend_DispFreePage  vendservice.o
-    0x0000a26c   0x0000004c   Code   RO          218    i.Vend_DispIOUPage  vendservice.o
-    0x0000a2b8   0x00000048   Code   RO          219    i.Vend_DispPayoutPage  vendservice.o
-    0x0000a300   0x00000034   Code   RO          220    i.Vend_DispQuChangePage  vendservice.o
-    0x0000a334   0x00000034   Code   RO          221    i.Vend_DispQuhuoPage  vendservice.o
-    0x0000a368   0x00000068   Code   RO          222    i.Vend_DispSalePage  vendservice.o
-    0x0000a3d0   0x00000028   Code   RO          223    i.Vend_GetAmountMoney  vendservice.o
-    0x0000a3f8   0x000001f4   Code   RO          224    i.Vend_GetMoney     vendservice.o
-    0x0000a5ec   0x0000013c   Code   RO          225    i.Vend_IsErrorState  vendservice.o
-    0x0000a728   0x0000001c   Code   RO          226    i.Vend_IsTuibiAPI   vendservice.o
-    0x0000a744   0x000000c4   Code   RO          227    i.Vend_SaleCostMoney  vendservice.o
-    0x0000a808   0x000000b0   Code   RO          228    i.Vend_UpdateTubeMoney  vendservice.o
-    0x0000a8b8   0x00000040   Code   RO          229    i.VendingIdle       vendservice.o
-    0x0000a8f8   0x000006e4   Code   RO          230    i.VendingService    vendservice.o
-    0x0000afdc   0x00000038   Code   RO         2604    i.Wait_I2C0_End     i2c.o
-    0x0000b014   0x00000028   Code   RO         2975    i.__ARM_fpclassify  m_ws.l(fpclassify.o)
-    0x0000b03c   0x0000000e   Code   RO         2797    i._is_digit         c_w.l(__printf_wp.o)
-    0x0000b04a   0x00000002   PAD
-    0x0000b04c   0x00000080   Code   RO            1    i.main              main.o
-    0x0000b0cc   0x00000098   Code   RO         1517    i.prvAddCurrentTaskToDelayedList  tasks.o
-    0x0000b164   0x000000b8   Code   RO         1518    i.prvAddNewTaskToReadyList  tasks.o
-    0x0000b21c   0x00000064   Code   RO         1519    i.prvCheckTasksWaitingTermination  tasks.o
-    0x0000b280   0x0000002a   Code   RO         1328    i.prvCopyDataFromQueue  queue.o
-    0x0000b2aa   0x0000007c   Code   RO         1329    i.prvCopyDataToQueue  queue.o
-    0x0000b326   0x00000012   Code   RO         1520    i.prvDeleteTCB      tasks.o
-    0x0000b338   0x00000064   Code   RO         1978    i.prvHeapInit       heap.o
-    0x0000b39c   0x0000002c   Code   RO         1521    i.prvIdleTask       tasks.o
-    0x0000b3c8   0x0000002a   Code   RO         1331    i.prvInitialiseNewQueue  queue.o
-    0x0000b3f2   0x00000090   Code   RO         1522    i.prvInitialiseNewTask  tasks.o
-    0x0000b482   0x00000002   PAD
-    0x0000b484   0x00000068   Code   RO         1523    i.prvInitialiseTaskLists  tasks.o
-    0x0000b4ec   0x00000068   Code   RO         1979    i.prvInsertBlockIntoFreeList  heap.o
-    0x0000b554   0x0000001a   Code   RO         1332    i.prvIsQueueEmpty   queue.o
-    0x0000b56e   0x00000002   PAD
-    0x0000b570   0x00000034   Code   RO         1525    i.prvResetNextTaskUnblockTime  tasks.o
-    0x0000b5a4   0x00000016   Code   RO         1882    i.prvTaskExitError  port.o
-    0x0000b5ba   0x0000007e   Code   RO         1334    i.prvUnlockQueue    queue.o
-    0x0000b638   0x000000dc   Code   RO         1980    i.pvPortMalloc      heap.o
-    0x0000b714   0x00000020   Code   RO         1529    i.pvTaskIncrementMutexHeldCount  tasks.o
-    0x0000b734   0x00000024   Code   RO         1883    i.pxPortInitialiseStack  port.o
-    0x0000b758   0x00000028   Code   RO         1291    i.uxListRemove      list.o
-    0x0000b780   0x00000034   Code   RO         2044    i.vApplicationMallocFailedHook  freertoshooks.o
-    0x0000b7b4   0x00000050   Code   RO         2045    i.vApplicationStackOverflowHook  freertoshooks.o
-    0x0000b804   0x00000002   Code   RO         2046    i.vApplicationTickHook  freertoshooks.o
-    0x0000b806   0x0000001a   Code   RO         1292    i.vListInitialise   list.o
-    0x0000b820   0x00000006   Code   RO         1293    i.vListInitialiseItem  list.o
-    0x0000b826   0x00000034   Code   RO         1294    i.vListInsert       list.o
-    0x0000b85a   0x00000018   Code   RO         1295    i.vListInsertEnd    list.o
-    0x0000b872   0x00000002   PAD
-    0x0000b874   0x00000024   Code   RO         1885    i.vPortEnterCritical  port.o
-    0x0000b898   0x00000020   Code   RO         1886    i.vPortExitCritical  port.o
-    0x0000b8b8   0x00000048   Code   RO         1981    i.vPortFree         heap.o
-    0x0000b900   0x00000014   Code   RO         1887    i.vPortSetupTimerInterrupt  port.o
-    0x0000b914   0x00000034   Code   RO         1538    i.vTaskDelay        tasks.o
-    0x0000b948   0x0000000c   Code   RO         1544    i.vTaskMissedYield  tasks.o
-    0x0000b954   0x00000020   Code   RO         1546    i.vTaskPlaceOnEventList  tasks.o
-    0x0000b974   0x000000b0   Code   RO         1548    i.vTaskPriorityInherit  tasks.o
-    0x0000ba24   0x00000018   Code   RO         1552    i.vTaskSetTimeOutState  tasks.o
-    0x0000ba3c   0x00000064   Code   RO         1553    i.vTaskStartScheduler  tasks.o
-    0x0000baa0   0x00000010   Code   RO         1555    i.vTaskSuspendAll   tasks.o
-    0x0000bab0   0x00000098   Code   RO         1556    i.vTaskSwitchContext  tasks.o
-    0x0000bb48   0x00000034   Code   RO         1888    i.xPortStartScheduler  port.o
-    0x0000bb7c   0x00000038   Code   RO         1345    i.xQueueGenericCreate  queue.o
-    0x0000bbb4   0x0000015c   Code   RO         1346    i.xQueueGenericReceive  queue.o
-    0x0000bd10   0x00000080   Code   RO         1347    i.xQueueGenericReset  queue.o
-    0x0000bd90   0x00000086   Code   RO         1349    i.xQueueGenericSendFromISR  queue.o
-    0x0000be16   0x00000002   PAD
-    0x0000be18   0x0000005c   Code   RO         1557    i.xTaskCheckForTimeOut  tasks.o
-    0x0000be74   0x00000060   Code   RO         1558    i.xTaskCreate       tasks.o
-    0x0000bed4   0x00000128   Code   RO         1564    i.xTaskIncrementTick  tasks.o
-    0x0000bffc   0x00000084   Code   RO         1567    i.xTaskPriorityDisinherit  tasks.o
-    0x0000c080   0x00000080   Code   RO         1568    i.xTaskRemoveFromEventList  tasks.o
-    0x0000c100   0x000000e8   Code   RO         1570    i.xTaskResumeAll    tasks.o
-    0x0000c1e8   0x0000002c   Code   RO         2962    locale$$code        c_w.l(lc_numeric_c.o)
-    0x0000c214   0x0000002c   Code   RO         2983    locale$$code        c_w.l(lc_ctype_c.o)
-    0x0000c240   0x00000004   Code   RO         2898    x$fpl$printf1       fz_ws.l(printf1.o)
-    0x0000c244   0x00000000   Code   RO         2974    x$fpl$usenofp       fz_ws.l(usenofp.o)
-    0x0000c244   0x000004e0   Data   RO          670    .constdata          menu.o
-    0x0000c724   0x00000012   Data   RO         2446    .constdata          key.o
-    0x0000c736   0x00002c38   Data   RO         2731    .constdata          lib.o
-    0x0000f36e   0x00000011   Data   RO         2805    .constdata          c_w.l(__printf_flags_ss_wp.o)
-    0x0000f37f   0x00000001   PAD
-    0x0000f380   0x00000008   Data   RO         2845    .constdata          c_w.l(_printf_wctomb.o)
-    0x0000f388   0x00000028   Data   RO         2874    .constdata          c_w.l(_printf_hex_int_ll_ptr.o)
-    0x0000f3b0   0x00000094   Data   RO         2937    .constdata          c_w.l(bigflt0.o)
-    0x0000f444   0x000010b0   Data   RO          671    .conststring        menu.o
-    0x000104f4   0x00000239   Data   RO         2694    .conststring        motor.o
-    0x0001072d   0x00000003   PAD
-    0x00010730   0x00000030   Data   RO         3109    Region$$Table       anon$$obj.o
-    0x00010760   0x0000001c   Data   RO         2961    locale$$data        c_w.l(lc_numeric_c.o)
-    0x0001077c   0x00000110   Data   RO         2982    locale$$data        c_w.l(lc_ctype_c.o)
+    0x00009c38   0x000001a4   Code   RO          212    i.Vend_ChangerMoney  vendservice.o
+    0x00009ddc   0x00000010   Code   RO          213    i.Vend_ClearDealPar  vendservice.o
+    0x00009dec   0x000002fc   Code   RO          214    i.Vend_DispChaxunPage  vendservice.o
+    0x0000a0e8   0x0000002c   Code   RO          215    i.Vend_DispChuhuoPage  vendservice.o
+    0x0000a114   0x00000054   Code   RO          216    i.Vend_DispEndPage  vendservice.o
+    0x0000a168   0x0000014c   Code   RO          217    i.Vend_DispFreePage  vendservice.o
+    0x0000a2b4   0x0000004c   Code   RO          218    i.Vend_DispIOUPage  vendservice.o
+    0x0000a300   0x00000048   Code   RO          219    i.Vend_DispPayoutPage  vendservice.o
+    0x0000a348   0x00000034   Code   RO          220    i.Vend_DispQuChangePage  vendservice.o
+    0x0000a37c   0x00000034   Code   RO          221    i.Vend_DispQuhuoPage  vendservice.o
+    0x0000a3b0   0x00000068   Code   RO          222    i.Vend_DispSalePage  vendservice.o
+    0x0000a418   0x00000028   Code   RO          223    i.Vend_GetAmountMoney  vendservice.o
+    0x0000a440   0x000001f4   Code   RO          224    i.Vend_GetMoney     vendservice.o
+    0x0000a634   0x0000013c   Code   RO          225    i.Vend_IsErrorState  vendservice.o
+    0x0000a770   0x0000001c   Code   RO          226    i.Vend_IsTuibiAPI   vendservice.o
+    0x0000a78c   0x00000104   Code   RO          227    i.Vend_SaleCostMoney  vendservice.o
+    0x0000a890   0x0000009c   Code   RO          228    i.Vend_UpdateTubeMoney  vendservice.o
+    0x0000a92c   0x00000040   Code   RO          229    i.VendingIdle       vendservice.o
+    0x0000a96c   0x0000072c   Code   RO          230    i.VendingService    vendservice.o
+    0x0000b098   0x00000038   Code   RO         2604    i.Wait_I2C0_End     i2c.o
+    0x0000b0d0   0x00000028   Code   RO         2975    i.__ARM_fpclassify  m_ws.l(fpclassify.o)
+    0x0000b0f8   0x0000000e   Code   RO         2797    i._is_digit         c_w.l(__printf_wp.o)
+    0x0000b106   0x00000002   PAD
+    0x0000b108   0x00000080   Code   RO            1    i.main              main.o
+    0x0000b188   0x00000098   Code   RO         1517    i.prvAddCurrentTaskToDelayedList  tasks.o
+    0x0000b220   0x000000b8   Code   RO         1518    i.prvAddNewTaskToReadyList  tasks.o
+    0x0000b2d8   0x00000064   Code   RO         1519    i.prvCheckTasksWaitingTermination  tasks.o
+    0x0000b33c   0x0000002a   Code   RO         1328    i.prvCopyDataFromQueue  queue.o
+    0x0000b366   0x0000007c   Code   RO         1329    i.prvCopyDataToQueue  queue.o
+    0x0000b3e2   0x00000012   Code   RO         1520    i.prvDeleteTCB      tasks.o
+    0x0000b3f4   0x00000064   Code   RO         1978    i.prvHeapInit       heap.o
+    0x0000b458   0x0000002c   Code   RO         1521    i.prvIdleTask       tasks.o
+    0x0000b484   0x0000002a   Code   RO         1331    i.prvInitialiseNewQueue  queue.o
+    0x0000b4ae   0x00000090   Code   RO         1522    i.prvInitialiseNewTask  tasks.o
+    0x0000b53e   0x00000002   PAD
+    0x0000b540   0x00000068   Code   RO         1523    i.prvInitialiseTaskLists  tasks.o
+    0x0000b5a8   0x00000068   Code   RO         1979    i.prvInsertBlockIntoFreeList  heap.o
+    0x0000b610   0x0000001a   Code   RO         1332    i.prvIsQueueEmpty   queue.o
+    0x0000b62a   0x00000002   PAD
+    0x0000b62c   0x00000034   Code   RO         1525    i.prvResetNextTaskUnblockTime  tasks.o
+    0x0000b660   0x00000016   Code   RO         1882    i.prvTaskExitError  port.o
+    0x0000b676   0x0000007e   Code   RO         1334    i.prvUnlockQueue    queue.o
+    0x0000b6f4   0x000000dc   Code   RO         1980    i.pvPortMalloc      heap.o
+    0x0000b7d0   0x00000020   Code   RO         1529    i.pvTaskIncrementMutexHeldCount  tasks.o
+    0x0000b7f0   0x00000024   Code   RO         1883    i.pxPortInitialiseStack  port.o
+    0x0000b814   0x00000028   Code   RO         1291    i.uxListRemove      list.o
+    0x0000b83c   0x00000034   Code   RO         2044    i.vApplicationMallocFailedHook  freertoshooks.o
+    0x0000b870   0x00000050   Code   RO         2045    i.vApplicationStackOverflowHook  freertoshooks.o
+    0x0000b8c0   0x00000002   Code   RO         2046    i.vApplicationTickHook  freertoshooks.o
+    0x0000b8c2   0x0000001a   Code   RO         1292    i.vListInitialise   list.o
+    0x0000b8dc   0x00000006   Code   RO         1293    i.vListInitialiseItem  list.o
+    0x0000b8e2   0x00000034   Code   RO         1294    i.vListInsert       list.o
+    0x0000b916   0x00000018   Code   RO         1295    i.vListInsertEnd    list.o
+    0x0000b92e   0x00000002   PAD
+    0x0000b930   0x00000024   Code   RO         1885    i.vPortEnterCritical  port.o
+    0x0000b954   0x00000020   Code   RO         1886    i.vPortExitCritical  port.o
+    0x0000b974   0x00000048   Code   RO         1981    i.vPortFree         heap.o
+    0x0000b9bc   0x00000014   Code   RO         1887    i.vPortSetupTimerInterrupt  port.o
+    0x0000b9d0   0x00000034   Code   RO         1538    i.vTaskDelay        tasks.o
+    0x0000ba04   0x0000000c   Code   RO         1544    i.vTaskMissedYield  tasks.o
+    0x0000ba10   0x00000020   Code   RO         1546    i.vTaskPlaceOnEventList  tasks.o
+    0x0000ba30   0x000000b0   Code   RO         1548    i.vTaskPriorityInherit  tasks.o
+    0x0000bae0   0x00000018   Code   RO         1552    i.vTaskSetTimeOutState  tasks.o
+    0x0000baf8   0x00000064   Code   RO         1553    i.vTaskStartScheduler  tasks.o
+    0x0000bb5c   0x00000010   Code   RO         1555    i.vTaskSuspendAll   tasks.o
+    0x0000bb6c   0x00000098   Code   RO         1556    i.vTaskSwitchContext  tasks.o
+    0x0000bc04   0x00000034   Code   RO         1888    i.xPortStartScheduler  port.o
+    0x0000bc38   0x00000038   Code   RO         1345    i.xQueueGenericCreate  queue.o
+    0x0000bc70   0x0000015c   Code   RO         1346    i.xQueueGenericReceive  queue.o
+    0x0000bdcc   0x00000080   Code   RO         1347    i.xQueueGenericReset  queue.o
+    0x0000be4c   0x00000086   Code   RO         1349    i.xQueueGenericSendFromISR  queue.o
+    0x0000bed2   0x00000002   PAD
+    0x0000bed4   0x0000005c   Code   RO         1557    i.xTaskCheckForTimeOut  tasks.o
+    0x0000bf30   0x00000060   Code   RO         1558    i.xTaskCreate       tasks.o
+    0x0000bf90   0x00000128   Code   RO         1564    i.xTaskIncrementTick  tasks.o
+    0x0000c0b8   0x00000084   Code   RO         1567    i.xTaskPriorityDisinherit  tasks.o
+    0x0000c13c   0x00000080   Code   RO         1568    i.xTaskRemoveFromEventList  tasks.o
+    0x0000c1bc   0x000000e8   Code   RO         1570    i.xTaskResumeAll    tasks.o
+    0x0000c2a4   0x0000002c   Code   RO         2962    locale$$code        c_w.l(lc_numeric_c.o)
+    0x0000c2d0   0x0000002c   Code   RO         2983    locale$$code        c_w.l(lc_ctype_c.o)
+    0x0000c2fc   0x00000004   Code   RO         2898    x$fpl$printf1       fz_ws.l(printf1.o)
+    0x0000c300   0x00000000   Code   RO         2974    x$fpl$usenofp       fz_ws.l(usenofp.o)
+    0x0000c300   0x000004e0   Data   RO          670    .constdata          menu.o
+    0x0000c7e0   0x00000012   Data   RO         2446    .constdata          key.o
+    0x0000c7f2   0x00002c38   Data   RO         2731    .constdata          lib.o
+    0x0000f42a   0x00000011   Data   RO         2805    .constdata          c_w.l(__printf_flags_ss_wp.o)
+    0x0000f43b   0x00000001   PAD
+    0x0000f43c   0x00000008   Data   RO         2845    .constdata          c_w.l(_printf_wctomb.o)
+    0x0000f444   0x00000028   Data   RO         2874    .constdata          c_w.l(_printf_hex_int_ll_ptr.o)
+    0x0000f46c   0x00000094   Data   RO         2937    .constdata          c_w.l(bigflt0.o)
+    0x0000f500   0x000010b0   Data   RO          671    .conststring        menu.o
+    0x000105b0   0x00000239   Data   RO         2694    .conststring        motor.o
+    0x000107e9   0x00000003   PAD
+    0x000107ec   0x00000030   Data   RO         3109    Region$$Table       anon$$obj.o
+    0x0001081c   0x0000001c   Data   RO         2961    locale$$data        c_w.l(lc_numeric_c.o)
+    0x00010838   0x00000110   Data   RO         2982    locale$$data        c_w.l(lc_ctype_c.o)
 
 
     Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00004000, Max: 0x00008000, ABSOLUTE)
@@ -3030,10 +3030,10 @@ Image component sizes
        502         72          0          2         64      43135   uart0.o
        474         72          0          2        128       3812   uart3.o
         24          0          0          0          0        942   vending.o
-      5602       1678          0         34          0      15130   vendservice.o
+      5790       1772          0         34          0      15178   vendservice.o
 
     ----------------------------------------------------------------------
-     42944       4682      17682        228      18172     283412   Object Totals
+     43132       4776      17682        228      18172     283460   Object Totals
          0          0         48          0          0          0   (incl. Generated)
         22          0          3         13          5          0   (incl. Padding)
 
@@ -3149,15 +3149,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     49528       4944      18196        228      18268     273424   Grand Totals
-     49528       4944      18196        228      18268     273424   ELF Image Totals
-     49528       4944      18196        228          0          0   ROM Totals
+     49716       5038      18196        228      18268     273472   Grand Totals
+     49716       5038      18196        228      18268     273472   ELF Image Totals
+     49716       5038      18196        228          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                67724 (  66.14kB)
+    Total RO  Size (Code + RO Data)                67912 (  66.32kB)
     Total RW  Size (RW Data + ZI Data)             18496 (  18.06kB)
-    Total ROM Size (Code + RO Data + RW Data)      67952 (  66.36kB)
+    Total ROM Size (Code + RO Data + RW Data)      68140 (  66.54kB)
 
 ==============================================================================
 

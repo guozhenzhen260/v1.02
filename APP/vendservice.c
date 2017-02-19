@@ -343,7 +343,8 @@ void Vend_DispChaxunPage(uint8_t *keyValue)
 			#ifdef DEBUG_VENDSERVICE
 			Trace("\r\n%S,%d:User need pay in more",__FILE__,__LINE__);
 			#endif				
-			API_SYSTEM_TimerChannelSet(3,30 * 100);
+			Vend_BillCoinCtr(1,1,0);
+			API_SYSTEM_TimerChannelSet(3,30 * 100);			
 			vmcStatus = VMC_SALE;
 		}
 	}	
@@ -481,7 +482,6 @@ void Vend_UpdateTubeMoney(void)
 		if(vmcChangeLow == 0)
 		{
 			vmcChangeLow = 1;
-			Vend_BillCoinCtr(2,2,0);
 		}
 	}
 	else
@@ -489,7 +489,6 @@ void Vend_UpdateTubeMoney(void)
 		if(vmcChangeLow == 1)
 		{
 			vmcChangeLow=0;
-			Vend_BillCoinCtr(1,1,0);
 		}
 	}
 	vTaskDelay(10);	
@@ -590,15 +589,23 @@ uint32_t Vend_ChangerMoney(void)
 	#endif
 	//暂存退币
 	if(g_holdValue)
-	{
-		#ifdef DEBUG_VENDSERVICE
-		Trace("\r\n%S,%d:App HoldReturn:%d",__FILE__,__LINE__,g_holdValue);
-		#endif
+	{		
 		BillDevProcess(&billEscrow,&Billtype,MBOX_BILLRETURN,&billOptBack);
+		//退钞成功
 		if(billOptBack == 4)
 		{
+			#ifdef DEBUG_VENDSERVICE
+			Trace("\r\n%S,%d:App HoldReturnSucess:%d",__FILE__,__LINE__,g_holdValue);
+			#endif
 			g_holdValue = 0;			
 		}		
+		//退钞失败
+		else
+		{
+			#ifdef DEBUG_VENDSERVICE
+			Trace("\r\n%S,%d:App HoldReturnFail:%d",__FILE__,__LINE__,g_holdValue);
+			#endif
+		}
 	}
 	tempmoney = Vend_GetAmountMoney();
 	//找零硬币
@@ -618,6 +625,7 @@ uint32_t Vend_ChangerMoney(void)
 		#endif		
 		g_coinAmount = 0;
 		g_billAmount = 0;
+		g_holdValue = 0;	
 		return  tempmoney-backmoney;
 	}
 	//找零成功
@@ -628,6 +636,7 @@ uint32_t Vend_ChangerMoney(void)
 		#endif	
 		g_coinAmount = 0;
 		g_billAmount = 0;
+		g_holdValue = 0;	
 		return 0;
 	}
 }
@@ -659,6 +668,7 @@ void Vend_SaleCostMoney(uint32_t PriceSale)
 		if(g_holdValue)
 		{
 			BillDevProcess(&billEscrow,&Billtype,MBOX_BILLESCROW,&billOptBack);
+			//压钞成功
 			if(billOptBack == 2)
 			{
 				#ifdef DEBUG_VENDSERVICE
@@ -666,6 +676,15 @@ void Vend_SaleCostMoney(uint32_t PriceSale)
 				#endif					
 				g_billAmount += g_holdValue;
 				LogGetMoneyAPI(g_holdValue,2);//记录日志
+				g_holdValue = 0;
+			}
+			//压钞失败
+			else
+			{
+				#ifdef DEBUG_VENDSERVICE
+				Trace("\r\n%S,%d:EscrowFail:%ld",__FILE__,__LINE__,g_holdValue);
+				#endif	
+				g_billAmount += g_holdValue;
 				g_holdValue = 0;
 			}
 		}
@@ -780,7 +799,8 @@ static void VendingService(void)
 		vTaskDelay(20);
 	}
 	API_LCM_ClearScreen();
-	API_SYSTEM_TimerChannelSet(4,5 * 100);		
+	API_SYSTEM_TimerChannelSet(4,5 * 100);	
+	Vend_BillCoinCtr(2,2,0);	
 	while(1)
 	{
 		switch(vmcStatus)
@@ -799,10 +819,12 @@ static void VendingService(void)
 					if(Vend_IsErrorState())
 					{
 						API_SYSTEM_TimerChannelSet(1,0);
-						Vend_BillCoinCtr(2,2,0);
 						vmcStatus = VMC_ERROR;
 					}
 				}
+				//.轮询投纸币和硬币金额
+				Vend_GetMoney();
+				Vend_IsTuibiAPI();
 				//4.轮询硬币器可找零硬币
 				if(API_SYSTEM_TimerReadChannelValue(2) == 0)
 				{
@@ -855,6 +877,9 @@ static void VendingService(void)
 				//3.超时退出查询页面
 				if(API_SYSTEM_TimerReadChannelValue(3) == 0)
 				{
+					#ifdef DEBUG_VENDSERVICE
+					Trace("\r\n%S,%d:App VMC_SALE Timeout",__FILE__,__LINE__);
+					#endif
 					keyValue = '>';
 					API_SYSTEM_TimerChannelSet(3,5 * 100);
 				}
@@ -874,6 +899,7 @@ static void VendingService(void)
 			                #ifdef DEBUG_VENDSERVICE
 			                Trace("\r\n%S,%d:Go to vending",__FILE__,__LINE__);
 			                #endif
+					   Vend_BillCoinCtr(2,2,0);		
 			                vmcStatus = VMC_CHUHUO;
 			            }
 
@@ -884,6 +910,10 @@ static void VendingService(void)
 					//超时退出查询页面
 					if(API_SYSTEM_TimerReadChannelValue(3) == 0)
 					{
+						#ifdef DEBUG_VENDSERVICE
+						Trace("\r\n%S,%d:App VMC_SALE Timeout",__FILE__,__LINE__);
+						#endif
+					      Vend_BillCoinCtr(2,2,0);	
 						Vend_ClearDealPar();
 						API_LCM_ClearScreen();
 						API_SYSTEM_TimerChannelSet(1,1 * 100);
@@ -899,12 +929,14 @@ static void VendingService(void)
 							Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);
 							#endif
 						}
+						Vend_BillCoinCtr(2,2,0);	
 						Vend_ClearDealPar();
 						API_LCM_ClearScreen();
 						API_SYSTEM_TimerChannelSet(1,1 * 100);
 						vmcStatus = VMC_FREE;
 					}
 				}
+				//有投币时
 				else
 				{
 					//3.有按下退币按键
@@ -918,13 +950,10 @@ static void VendingService(void)
 					}
 				}
 				break;
-			case VMC_CHUHUO:
-				//出货前禁能按键，现金设备等
-				Vend_BillCoinCtr(2,2,0);				
+			case VMC_CHUHUO:		
 				Vend_DispChuhuoPage();
 				API_KEY_KeyboardCtrl(0x00);			
 				ChuhuoRst = API_VENDING_Vend(ChannelNum[0],ChannelNum[1]);
-				//ChuhuoRst=1;
 				API_KEY_KeyboardCtrl(0x01);				
 				if(ChuhuoRst==1)
 				{	
@@ -983,8 +1012,7 @@ static void VendingService(void)
 				Vend_DispEndPage();
 				LogEndAPI();
 				Vend_ClearDealPar();
-				vmcColumn = 0;	
-				Vend_BillCoinCtr(1,1,0);				
+				vmcColumn = 0;				
 				API_LCM_ClearScreen();
 				vmcStatus = VMC_FREE;
 				#ifdef DEBUG_VENDSERVICE
@@ -1005,7 +1033,6 @@ static void VendingService(void)
 					if(!Vend_IsErrorState())
 					{	
 						API_SYSTEM_TimerChannelSet(1,0);
-						Vend_BillCoinCtr(1,1,1);
 						vmcStatus = VMC_FREE;
 					}
 				}

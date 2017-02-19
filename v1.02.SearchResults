@@ -1,3 +1,2 @@
----- App User press key 匹配 (2 in 1 文件) ----
-Vendservice.c (app):						Trace("\r\n%S,%d:App User Press key = %d",__FILE__,__LINE__,keyValue);
-Vendservice.c (app):					Trace("\r\n%S,%d:App User press key",__FILE__,__LINE__);
+---- User press down escrow request 匹配 (1 in 1 文件) ----
+Vendservice.c (app):			Trace("\r\n%S,%d:User press down escrow request",__FILE__,__LINE__);
